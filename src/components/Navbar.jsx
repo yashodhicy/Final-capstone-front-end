@@ -27,7 +27,7 @@ const Navbar = () => {
               <Link to="myreserve">My Reservations</Link>
             </li>
             <li>
-              <Link to="add">Add House</Link>
+              <Link to="add">Add oHuse</Link>
             </li>
             <li>
               <Link to="delete">Delete House</Link>
