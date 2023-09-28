@@ -1,20 +1,16 @@
 body {
   min-height: 100vh;
   min-width: 100vw;
-  background-color:aqua ;
 }
 
 #root {
   width: 100%;
   height: 100vh;
-  background-color: yellow;
   display: flex;
   position: relative;
 }
 
 #pages-content {
   width: 100%;
-  background-color: red;
   overflow-y: auto;
-  padding: 1em;
 }

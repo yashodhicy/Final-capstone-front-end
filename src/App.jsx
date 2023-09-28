@@ -8,7 +8,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route path="/myreserve" element={<Reservation />} />
+        <Route path="/reserve" element={<Reservation />} />
       </Route>
     )
   )

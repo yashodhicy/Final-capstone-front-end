@@ -6,7 +6,7 @@ const Root = () => {
   return (
     <div id="root">
       <Navbar />
-      <div id="pages-content" style={{ width: "100%", backgroundColor: "red" }}>
+      <div id="pages-content">
         <Outlet />
       </div>
     </div>
