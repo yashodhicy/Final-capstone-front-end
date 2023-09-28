@@ -12,12 +12,12 @@ function Example() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+        Select
       </Button>
 
-      <Modal centered show={show} onHide={handleClose} animation={false}>
+      <Modal centered show={show} onHide={handleClose} backdrop="static">
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Select a house from the list</Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
         <Modal.Footer>
