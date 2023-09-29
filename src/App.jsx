@@ -9,8 +9,17 @@ import Reservation from "./routes/Reservation";
 import Root from "./routes/Root";
 import "./App.css";
 import Houses from "./components/House";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getHouses } from "./Redux/HouseSlice";
+import HouseDetails from "./HouseDetails";
 
-function App() {
+export default function App() {
+  const dispatch = useDispatch();
+
+useEffect(() => {
+  dispatch(getHouses());
+}, [dispatch]);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route
@@ -20,8 +29,9 @@ function App() {
       >
         <Route path="/" element={<Root />}>
           {/* Add navigation tabs here */}
+          <Route path='/' element= {<Houses />}></Route>
+        <Route path='/houses/:houseId' element = { <HouseDetails />} />
           <Route path="/reserve" element={<Reservation />} />
-          <Route path="/" element={<Houses />} />
         </Route>
         <Route path="/login" element={<h1>I&apos;m the login page</h1>} />
         <Route path="/signup" element={<h1>I&apos;m the Sign up page</h1>} />
@@ -30,5 +40,3 @@ function App() {
   );
   return <RouterProvider router={router} />;
 }
-
-export default App;
