@@ -14,6 +14,8 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Outlet />}>
         <Route path="/" element={<Root />}>
+
+          {/* Add navigation tabs here */}
           <Route path="/reserve" element={<Reservation />} />
         </Route>
         <Route path="/login" element={ <h1>I&apos;m the login page</h1>} />

@@ -1,9 +1,14 @@
 import { useState } from "react";
 //import { useDispatch } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./componentsCss/navbar.css";
 
 const Navbar = () => {
+  const path = useLocation();
+  const setNavigationBackground = (matchPath) => {
+    if (path.pathname === matchPath) return "yellowgreen";
+    return "unset";
+  };
   const [tray, settray] = useState(true);
   return (
     <>
@@ -28,16 +33,26 @@ const Navbar = () => {
         <div className="top">
           <h2>HOUSE RENT</h2>
           <ul>
-            <li>
+            <li
+              style={{
+                backgroundColor: setNavigationBackground('/'),
+              }}
+            >
               <Link to="/">House</Link>
             </li>
-            <li>
+            <li style={{
+                backgroundColor: setNavigationBackground('/reserve'),
+              }}>
               <Link to="reserve">Reserve</Link>
             </li>
-            <li>
+            <li style={{
+                backgroundColor: setNavigationBackground('/myreserve'),
+              }}>
               <Link to="myreserve">My Reservations</Link>
             </li>
-            <li>
+            <li style={{
+                backgroundColor: setNavigationBackground('/add'),
+              }}>
               <Link to="add">Add House</Link>
             </li>
             <li>
