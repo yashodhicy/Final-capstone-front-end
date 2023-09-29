@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button, Form, ListGroup } from "react-bootstrap";
 // import Button from 'react-bootstrap/Button';
 import Modal from "react-bootstrap/Modal";
+import { useSelector } from "react-redux";
+import HouseModalItem from "./HouseModalItem";
 // import { Form } from "react-router-dom";
 
 function Example() {
@@ -9,6 +11,8 @@ function Example() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const houses = useSelector(state => state.Houses).houses
 
   return (
     <>
@@ -29,7 +33,10 @@ function Example() {
         <Modal.Body>
           {/* Modal body */}
           <ListGroup as="ol">
-            <ListGroup.Item
+            {
+              houses.map((house, index) => <HouseModalItem key={index} house={house} />)
+            }
+            {/* <ListGroup.Item
               className="my-1"
               as="li"
               style={{ backgroundColor: "rgba(172, 255, 47, 0.86)" }}
@@ -130,7 +137,7 @@ function Example() {
                 value={2}
                 onChange={(e) => console.log(e.target.value)}
               />
-            </ListGroup.Item>
+            </ListGroup.Item> */}
           </ListGroup>
         </Modal.Body>
         <Modal.Footer>

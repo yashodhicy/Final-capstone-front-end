@@ -17,9 +17,9 @@ import HouseDetails from "./HouseDetails";
 export default function App() {
   const dispatch = useDispatch();
 
-useEffect(() => {
-  dispatch(getHouses());
-}, [dispatch]);
+  useEffect(() => {
+    dispatch(getHouses());
+  }, [dispatch]);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route
@@ -29,8 +29,8 @@ useEffect(() => {
       >
         <Route path="/" element={<Root />}>
           {/* Add navigation tabs here */}
-          <Route path='/' element= {<Houses />}></Route>
-        <Route path='/houses/:houseId' element = { <HouseDetails />} />
+          <Route path="/" element={<Houses />}></Route>
+          <Route path="/houses/:houseId" element={<HouseDetails />} />
           <Route path="/reserve" element={<Reservation />} />
         </Route>
         <Route path="/login" element={<h1>I&apos;m the login page</h1>} />
