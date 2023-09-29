@@ -6,9 +6,12 @@ import "./componentsCss/navbar.css";
 const Navbar = () => {
   const path = useLocation();
   const setNavigationBackground = (matchPath) => {
-    if (path.pathname === matchPath) return "yellowgreen";
-    return "unset";
+    if (path.pathname === matchPath) return { backgroundColor: "yellowgreen", color: "white" };
+    return {};
   };
+  const navigationClass = (matchPath) => {
+    return path.pathname === matchPath?"text-white": ""
+  }
   const [tray, settray] = useState(true);
   return (
     <>
@@ -33,27 +36,17 @@ const Navbar = () => {
         <div className="top">
           <h2>HOUSE RENT</h2>
           <ul>
-            <li
-              style={{
-                backgroundColor: setNavigationBackground('/'),
-              }}
-            >
-              <Link to="/">House</Link>
+            <li style={setNavigationBackground("/")}>
+              <Link className={navigationClass('/')} to="/">House</Link>
             </li>
-            <li style={{
-                backgroundColor: setNavigationBackground('/reserve'),
-              }}>
-              <Link to="reserve">Reserve</Link>
+            <li style={setNavigationBackground("/reserve")}>
+              <Link className={navigationClass('/reserve')} to="reserve">Reserve</Link>
             </li>
-            <li style={{
-                backgroundColor: setNavigationBackground('/myreserve'),
-              }}>
-              <Link to="myreserve">My Reservations</Link>
+            <li style={setNavigationBackground("/myreserve")}>
+              <Link className={navigationClass('/myreserve')} to="myreserve">My Reservations</Link>
             </li>
-            <li style={{
-                backgroundColor: setNavigationBackground('/add'),
-              }}>
-              <Link to="add">Add House</Link>
+            <li style={setNavigationBackground("/add")}>
+              <Link className={navigationClass('/add')} to="add">Add House</Link>
             </li>
             <li>
               <Link to="delete">Delete House</Link>

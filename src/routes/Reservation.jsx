@@ -5,21 +5,14 @@ import ReactDatePicker from "react-datepicker";
 import { Country, State, City } from "country-state-city";
 import { Button, Form } from "react-bootstrap";
 import TextTruncate from "react-text-truncate";
-// console.log(Country.getAllCountries())
-console.log(City.getAllCities().slice(1, 100));
 
 const Reservation = () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <article
-      className="p-3 w-100 h-100 text-white"
+      className="d-flex align-items-center p-3 w-100 h-100 text-white"
       style={{
-        width: "100%",
-        height: "100%",
-        color: "white",
         backgroundColor: "rgba(172, 255, 47, 0.86)",
-        display: "flex",
-        alignItems: "center",
       }}
     >
       <div style={{ margin: "auto", padding: 10 }}>
@@ -33,7 +26,14 @@ const Reservation = () => {
         >
           Have a reservation
         </h1>
-        <hr style={{height: 3, width: "100%", border: "white 2px black", backgroundColor: "white"}} />
+        <hr
+          style={{
+            height: 3,
+            width: "100%",
+            border: "white 2px black",
+            backgroundColor: "white",
+          }}
+        />
         <form style={{ width: "100%", maxWidth: 400, margin: "auto" }}>
           <div className="d-flex justify-content-between gap-3 p-2 align-items-center">
             <label style={{ fontWeight: "bold" }} htmlFor="house">
