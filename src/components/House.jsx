@@ -49,8 +49,8 @@ const Houses = () => {
       
       <div className="all">
         {each.map((e) => (
-          <Link to={`/houses/${e.id}`} className="link">
-          <div className="each" key={e.id}>
+          <Link to={`/houses/${e.id}`} className="link" key={e.id}>
+          <div className="each">
             <div className="image">
               <img src={e.image} alt={e.name} crossOrigin="anonymous | use-credentials" />
             </div>
