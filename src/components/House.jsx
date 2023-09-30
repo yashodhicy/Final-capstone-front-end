@@ -54,7 +54,7 @@ const Houses = () => {
             <div className="image">
               <img src={e.image} alt={e.name} crossOrigin="anonymous | use-credentials" />
             </div>
-            <Link to={`/${e.id}`} className="link">{e.name}</Link>
+            <p className="name">{e.name}</p>
             <p>
               {e.description.split(' ').slice(0, 15).join(' ')}
               . . .
