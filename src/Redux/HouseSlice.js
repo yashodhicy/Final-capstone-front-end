@@ -6,7 +6,7 @@ const baseUrl = 'https://house-rental-8mh7.onrender.com/api/v1';
 export const AddnewHouse = createAsyncThunk(
   'api/AddnewHouse',
   async (payload) => {
-    const response = await fetch(`${baseUrl}/houses`, {
+    const response = await fetch(`${baseUrl}/houses?access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`, {
       method: 'POST',
       body: payload,
     });
