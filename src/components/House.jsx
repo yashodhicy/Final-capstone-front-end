@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './componentsCss/houses.css';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getHouses } from '../Redux/HouseSlice';
