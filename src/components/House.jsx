@@ -1,3 +1,4 @@
+import './componentsCss/houses.css';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {  useSelector } from 'react-redux';
@@ -7,7 +8,7 @@ const Houses = () => {
   const queryParams = new URLSearchParams(location.search);
   const message = queryParams.get('message');
 
-  const houses = useSelector((state) => state.houses.houses);
+  const houses = useSelector((state) => state.Houses.houses);
 
   const [buttondis, setbuttondis] = useState(false);
   const [prevdis, setprev] = useState(false);
@@ -38,15 +39,14 @@ const Houses = () => {
 
   return (
     <section className="houses">
-      <div>
+            <div>
       {message && <p>{message}</p>}
       </div>
       <div className="header">
         <h2>Need a House to rent ?</h2>
         <p>checkout our available Houses</p>
       </div>
-      
-      
+
       <div className="all">
         {each.map((e) => (
           <Link to={`/houses/${e.id}`} className="link" key={e.id}>
@@ -54,7 +54,7 @@ const Houses = () => {
             <div className="image">
               <img src={e.image} alt={e.name} crossOrigin="anonymous | use-credentials" />
             </div>
-            <Link to={`/${e.id}`} className="link">{e.name}</Link>
+            <p className="name">{e.name}</p>
             <p>
               {e.description.split(' ').slice(0, 15).join(' ')}
               . . .
