@@ -17,7 +17,6 @@ export const AddnewHouse = createAsyncThunk(
 
 export const getHouses = createAsyncThunk('house/getHouse', async () => {
   const response = await axios.get(`${baseUrl}/houses?access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`);
-  // console.log(response.data);
   return response.data;
 });
 
