@@ -1,15 +1,12 @@
-import { useEffect, useState } from 'react';
 import './componentsCss/houses.css';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getHouses } from '../Redux/HouseSlice';
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import {  useSelector } from 'react-redux';
 
 const Houses = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getHouses());
-  }, [dispatch]);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const message = queryParams.get('message');
 
   const houses = useSelector((state) => state.Houses.houses);
 
@@ -42,6 +39,9 @@ const Houses = () => {
 
   return (
     <section className="houses">
+            <div>
+      {message && <p>{message}</p>}
+      </div>
       <div className="header">
         <h2>Need a House to rent ?</h2>
         <p>checkout our available Houses</p>
@@ -49,7 +49,8 @@ const Houses = () => {
 
       <div className="all">
         {each.map((e) => (
-          <div className="each" key={e.id}>
+          <Link to={`/houses/${e.id}`} className="link" key={e.id}>
+          <div className="each">
             <div className="image">
               <img src={e.image} alt={e.name} crossOrigin="anonymous | use-credentials" />
             </div>
@@ -64,6 +65,7 @@ const Houses = () => {
               <li><i className="fa-brands fa-instagram" /></li>
             </ul>
           </div>
+          </Link>
         ))}
       </div>
       <div className="btn">

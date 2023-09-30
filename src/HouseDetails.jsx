@@ -4,7 +4,7 @@ import {  useParams } from "react-router-dom";
 const HouseDetails = () => {
   const { houseId } = useParams();
 
-  const houses = useSelector((state) => state.houses).houses;
+  const houses = useSelector((state) => state.Houses).houses;
   const houseIdNumber = parseInt(houseId, 10);
   const house = houses.find((house) => houseIdNumber === house.id);
   console.log(house);
