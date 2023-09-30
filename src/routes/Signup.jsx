@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "react-bootstrap";
 import SignupForm from "../components/SignUpForm";
 import styles from "./styles/signup.module.css";

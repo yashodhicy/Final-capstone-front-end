@@ -10,8 +10,7 @@ function SignupForm() {
     register,
     handleSubmit,
     watch,
-    reset,
-    formState: { errors },
+    reset
   } = useForm();
   const navigate = useNavigate();
 
@@ -26,7 +25,7 @@ function SignupForm() {
         },
         // withCredentials: true
       })
-      .then((response) => {
+      .then(() => {
         console.log("success");
         toast.success(
           "You signed up successfully, please login with the same credentials to connect t your account"
