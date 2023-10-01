@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import styles from "../componentsCss/auth.module.css"
+import styles from "../componentsCss/auth.module.css";
 
-const Navigation = () => {
+const Navigation = ({ login }) => {
   return (
     <div
       className={
@@ -12,8 +13,8 @@ const Navigation = () => {
     >
       <h5>Logo</h5>
       <Button variant="primary">
-        <Link to="/login" className="text-white">
-          Login
+        <Link to={login ? "/login" : "signup"} className="text-white">
+          {login ? "Login" : "Sign up"}
         </Link>
       </Button>
     </div>

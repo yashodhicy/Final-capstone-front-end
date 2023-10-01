@@ -5,6 +5,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { retrive } from "../components/utils/localstorage";
 import { fetchUser } from "../Redux/user/userReducer";
+import { toast } from "react-toastify";
 
 const Root = () => {
   const dispath = useDispatch();
@@ -12,13 +13,22 @@ const Root = () => {
   const userSession = retrive("session");
   if (!userSession) navigate("/login");
   const user = useSelector((state) => state.user);
+  const houses = useSelector((state) => state.Houses);
+  const reservations = useSelector((state) => state.reservations);
   useEffect(() => {
     dispath(fetchUser(userSession));
-  }, [dispath, navigate]);
+  }, [houses, reservations]);
 
   useEffect(() => {
-    if (user.errors) navigate("/login");
-    console.log(user);
+
+    if (user.errors) {
+      if (user.errors.code !== "ERR_NETWORK") {
+        toast.error("Your session is expired, please login with your user credentials!");
+        navigate("/login");
+      } else {
+        toast.error("Please connect to internet and try again!");
+      }
+    }
   }, [user]);
 
   return (
