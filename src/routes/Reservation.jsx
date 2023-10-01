@@ -5,7 +5,7 @@ import ReactDatePicker from "react-datepicker";
 import { Country, State, City } from "country-state-city";
 import { Button, Form } from "react-bootstrap";
 import TextTruncate from "react-text-truncate";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservations, reserve } from "../Redux/reservation/middlewares";
 
@@ -155,7 +155,6 @@ const Reservation = () => {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </article>
   );
 };
