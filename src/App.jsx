@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getHouses } from "./Redux/HouseSlice";
 import HouseDetails from "./HouseDetails";
+import AddHouse from "./components/AddHouse";
+import DeleteHouse from "./components/Delete";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -30,7 +32,9 @@ export default function App() {
         <Route path="/" element={<Root />}>
           {/* Add navigation tabs here */}
           <Route path="/" element={<Houses />}></Route>
+          <Route path="/add" element={<AddHouse />} />
           <Route path="/houses/:houseId" element={<HouseDetails />} />
+          <Route path="/delete" element={<DeleteHouse />} />
           <Route path="/reserve" element={<Reservation />} />
         </Route>
         <Route path="/login" element={<h1>I&apos;m the login page</h1>} />
