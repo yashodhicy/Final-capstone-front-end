@@ -32,7 +32,7 @@ export const Deletehouse = createAsyncThunk('house/Deletehouse', async (payload)
 });
 
 export const userHouses = createAsyncThunk('house/userhouses',async() => {
-  const response = await axios.get(`${baseUrl}/houses/userhouses/${payload}`);
+  const response = await axios.get(`${baseUrl}/houses/userhouses/access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`);
   return response.data;
 })
 

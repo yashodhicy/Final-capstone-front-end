@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteHouseThunk } from '../Redux/deleteSlice.js';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userHouses } from '../Redux/HouseSlice.js';
 
 const DeleteHouse = () => {

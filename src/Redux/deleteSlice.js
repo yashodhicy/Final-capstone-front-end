@@ -3,18 +3,14 @@ import axios from 'axios';
 
 
 export const deleteHouseThunk = createAsyncThunk('houses/delete', async (houseId) => {
-  try {
-    const response = await axios.delete(`https://house-rental-8mh7.onrender.com/api/v1/houses/${houseId}?access-token=Qk5AG4wl5r7ZMA1GzLE0ZA&client=DAHOeSDbu-bxDebj04bxfA&uid=yash2@email.com`);
-    if (!response.ok) {
+    const response = await axios.delete(`https://house-rental-8mh7.onrender.com/api/v1/houses/${houseId}?access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`);
+  
+    if (response.status !== 200) {
       throw new Error('Delete request failed');
     }
-    return response.error;
-  } 
-  catch (error) {
-    
-    throw error;
-  }
-});
+  
+    return response.data;
+  });
   
 
 const initialState = {
