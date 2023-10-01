@@ -8,17 +8,19 @@ const DeleteHouse = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-  dispatch(userHouses());
-  },[dispatch]);
-
-  const userhouses = useSelector((state) => state.Houses.userhouses);
-  const navigate = useNavigate();
-
-  const handleDelete = (houseId) => {
-    dispatch(deleteHouseThunk(houseId)).then((action) => {
-      navigate('/delete');
-      console.log('deleteHouseThunk action:', action);
-    });
+    dispatch(userHouses());
+    },[]);
+  
+    const userhouses = useSelector((state) => state.Houses.userhouses);
+    const navigate = useNavigate();
+    
+    const handleDelete = async(houseId) => {
+        await dispatch(deleteHouseThunk(houseId)).then((action) => {
+        dispatch(userHouses())
+        navigate('/delete');
+        console.log('deleteHouseThunk action:', action);
+      });
+  
   };
 
   return (
@@ -28,7 +30,10 @@ const DeleteHouse = () => {
         <h2>Need a House to Delete ?</h2>
         <p>checkout our available Houses</p>
       </div>
-
+      
+      {userhouses.length === 0 ? (
+      <p>You have no houses yet. Add a new house.</p>
+      ) : (
       <div className="all">
        {userhouses.map((e) => (
           <div className="each" key={e.id}>
@@ -53,7 +58,7 @@ const DeleteHouse = () => {
           </div>
 
         ))}
-      </div>
+      </div> )}
       {/* <div className="btn">
         <button className="prev" type="button" disabled={prevdis} onClick={prev}>
           <i className="fa-solid fa-caret-left" />
