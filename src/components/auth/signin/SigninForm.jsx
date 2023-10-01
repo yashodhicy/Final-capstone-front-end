@@ -33,8 +33,8 @@ function SigninForm() {
         toast.success(
           "You signed in successfully, welcome " + response.data.data.username
         );
-        // reset();
-        // navigate("/");
+        reset();
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
