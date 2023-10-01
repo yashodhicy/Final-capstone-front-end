@@ -13,7 +13,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getHouses } from "./Redux/HouseSlice";
 import HouseDetails from "./HouseDetails";
-import Signup from "./routes/Signup";
+import Signup from "./routes/auth/Signup";
+import Signin from "./routes/auth/Signin";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ export default function App() {
           <Route path="/houses/:houseId" element={<HouseDetails />} />
           <Route path="/reserve" element={<Reservation />} />
         </Route>
-        <Route path="/login" element={<h1>I&apos;m the login page</h1>} />
+        <Route path="/login" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
       </Route>
     )

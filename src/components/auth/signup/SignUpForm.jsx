@@ -39,7 +39,7 @@ function SignupForm() {
         toast.error(
           "An error occured while creating the account, please try again"
         );
-        // reset();
+        reset();
       });
   };
 
