@@ -20,6 +20,7 @@ export const getHouses = createAsyncThunk('house/getHouse', async () => {
   return response.data;
 });
 
+
 export const House = createAsyncThunk('house/House', async (payload) => {
   const response = await axios.get(`${baseUrl}/houses/${payload}`);
   return response.data;
@@ -30,15 +31,40 @@ export const Deletehouse = createAsyncThunk('house/Deletehouse', async (payload)
   return response.data;
 });
 
-export const userHouses = createAsyncThunk('house/userHouses', async (payload) => {
-  const response = await axios.get(`${baseUrl}/houses/houses?id=${payload}`);
+export const userHouses = createAsyncThunk('house/userhouses',async() => {
+  const response = await axios.get(`${baseUrl}/houses/userhouses/${payload}`);
   return response.data;
-});
+})
 
 const initialState = {
   houses: [],
   house: '',
-  userHouses: [],
+  userhouses: [{
+    id: 1,
+    user_id: 2,
+    name: 'white house',
+    area: 7,
+    number_of_rooms: 2,
+    description: 'this is a house with a kitchen and a pool',
+    location: 'Nigera',
+    created_at: '2023-09-28T06:02:18.490Z',
+    updated_at: '2023-09-28T06:02:18.490Z',
+    price: '100.5',
+    image: 'https://tse4.mm.bing.net/th?id=OIP.Y9sxyn8pPZdClDz-jOpbAAHaE8&pid=Api&P=0&h=220'
+  },
+  {
+    id: 2,
+    user_id: 3,
+    name: 'Apartama one',
+    area: 120,
+    number_of_rooms: 4,
+    description: 'beautiful house ready for rent',
+    location: 'Mekelle',
+    created_at: '2023-09-29T02:58:49.562Z',
+    updated_at: '2023-09-29T02:58:49.562Z',
+    price: '3000.0',
+    image: 'https://thumbs.dreamstime.com/z/beautiful-exterior-home-pictures-new-home-design-images-modern-best-house-design-images-best-house-images-images-latest-172194515.jpg'
+  }],
 };
 
 const HouseSlice = createSlice({
@@ -58,7 +84,7 @@ const HouseSlice = createSlice({
     });
 
     builder.addCase(userHouses.fulfilled, (state, action) => {
-      state.userHouses = action.payload;
+      state.userhouses = action.payload;
     });
   },
 
