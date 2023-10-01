@@ -20,6 +20,7 @@ export const getHouses = createAsyncThunk('house/getHouse', async () => {
   return response.data;
 });
 
+
 export const House = createAsyncThunk('house/House', async (payload) => {
   const response = await axios.get(`${baseUrl}/houses/${payload}`);
   return response.data;
@@ -30,15 +31,15 @@ export const Deletehouse = createAsyncThunk('house/Deletehouse', async (payload)
   return response.data;
 });
 
-export const userHouses = createAsyncThunk('house/userHouses', async (payload) => {
-  const response = await axios.get(`${baseUrl}/houses/houses?id=${payload}`);
+export const userHouses = createAsyncThunk('house/userhouses',async() => {
+  const response = await axios.get(`${baseUrl}/houses/userhouses/?access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`);
   return response.data;
-});
+})
 
 const initialState = {
   houses: [],
   house: '',
-  userHouses: [],
+  userhouses: [],
 };
 
 const HouseSlice = createSlice({
@@ -58,7 +59,7 @@ const HouseSlice = createSlice({
     });
 
     builder.addCase(userHouses.fulfilled, (state, action) => {
-      state.userHouses = action.payload;
+      state.userhouses = action.payload;
     });
   },
 
