@@ -1,17 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const initialState = {
   user: null,
   errors: null,
-  pending: true,
+  pending: false,
 };
 
-export const fetchUser = createAsyncThunk("fetch/user", async (data) => {
+export const fetchUser = createAsyncThunk("fetch/user", async (session) => {
   const url = "https://house-rental-8mh7.onrender.com/auth/validate_token";
   const response = await axios.get(url, {
     params: {
-      ...data,
+      ...session,
     },
   });
   return response;
@@ -20,8 +21,14 @@ export const fetchUser = createAsyncThunk("fetch/user", async (data) => {
 const reducer = createSlice({
   name: "user slice",
   initialState,
+  reducers: {
+    deleteUserData: () => initialState,
+  },
   extraReducers: (build) => {
     build.addCase(fetchUser.fulfilled, (state, { payload }) => {
+      toast.success(
+        "You successfully logged in, welcome " + payload.data.data.username
+      );
       return {
         ...state,
         user: payload.data.data,
@@ -49,3 +56,4 @@ const reducer = createSlice({
 });
 
 export default reducer.reducer;
+export const { deleteUserData } = reducer.actions;
