@@ -10,17 +10,17 @@ const DeleteHouse = () => {
   useEffect(() => {
     dispatch(userHouses());
     },[]);
-  
+
     const userhouses = useSelector((state) => state.Houses.userhouses);
     const navigate = useNavigate();
-    
+
     const handleDelete = async(houseId) => {
         await dispatch(deleteHouseThunk(houseId)).then((action) => {
         dispatch(userHouses())
         navigate('/delete');
         console.log('deleteHouseThunk action:', action);
       });
-  
+
   };
 
   return (
@@ -30,7 +30,7 @@ const DeleteHouse = () => {
         <h2>Need a House to Delete ?</h2>
         <p>checkout our available Houses</p>
       </div>
-      
+
       {userhouses.length === 0 ? (
       <p>You have no houses yet. Add a new house.</p>
       ) : (
@@ -59,14 +59,6 @@ const DeleteHouse = () => {
 
         ))}
       </div> )}
-      {/* <div className="btn">
-        <button className="prev" type="button" disabled={prevdis} onClick={prev}>
-          <i className="fa-solid fa-caret-left" />
-        </button>
-        <button className="next" type="button" disabled={buttondis} onClick={next}>
-          <i className="fa-solid fa-caret-right" />
-        </button>
-      </div> */}
     </section>
     </div>
   );

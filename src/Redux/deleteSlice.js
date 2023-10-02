@@ -1,17 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
+import { sessionParamsGenerator } from '../components/utils/session';
 
 
 export const deleteHouseThunk = createAsyncThunk('houses/delete', async (houseId) => {
-    const response = await axios.delete(`https://house-rental-8mh7.onrender.com/api/v1/houses/${houseId}?access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`);
-  
+    const response = await axios.delete(`https://house-rental-8mh7.onrender.com/api/v1/houses/${houseId}${sessionParamsGenerator()}`);
+
     if (response.status !== 200) {
       throw new Error('Delete request failed');
     }
-  
+
     return response.data;
   });
-  
+
 
 const initialState = {
     status: 'idle',

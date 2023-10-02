@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { sessionParamsGenerator } from '../components/utils/session';
 
 const baseUrl = 'https://house-rental-8mh7.onrender.com/api/v1';
 
 export const AddnewHouse = createAsyncThunk(
   'api/AddnewHouse',
   async (payload) => {
-    const response = await fetch(`${baseUrl}/houses?access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`, {
+    const response = await fetch(`${baseUrl}/houses${sessionParamsGenerator()}`, {
       method: 'POST',
       body: payload,
     });
@@ -16,7 +17,7 @@ export const AddnewHouse = createAsyncThunk(
 );
 
 export const getHouses = createAsyncThunk('house/getHouse', async () => {
-  const response = await axios.get(`${baseUrl}/houses?access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`);
+  const response = await axios.get(`${baseUrl}/houses${sessionParamsGenerator()}`);
   return response.data;
 });
 
@@ -32,7 +33,7 @@ export const Deletehouse = createAsyncThunk('house/Deletehouse', async (payload)
 });
 
 export const userHouses = createAsyncThunk('house/userhouses',async() => {
-  const response = await axios.get(`${baseUrl}/houses/userhouses/?access-token=ttbqe7K338BIaChQ6-xmUg&client=Z7druuGq8xXAeW1U6QznSA&uid=brhanu@gamil.com`);
+  const response = await axios.get(`${baseUrl}/houses/userhouses/${sessionParamsGenerator()}`);
   return response.data;
 })
 
