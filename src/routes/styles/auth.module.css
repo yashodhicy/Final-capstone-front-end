@@ -7,11 +7,6 @@
   background-size: cover;
 }
 
-.navigation {
-  height: 50px;
-  padding: 5px 10px;
-}
-
 .form-container {
   height: calc(100vh - 50px);
 }
