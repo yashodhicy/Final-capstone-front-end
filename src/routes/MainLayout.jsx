@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { retrive } from "../components/utils/localstorage";
@@ -10,26 +10,22 @@ const MainLayout = () => {
   const dispatch = useDispatch();
   const userSession = retrive("session");
   const navigate = useNavigate();
-  const path = useLocation();
+  const path = useLocation()
   useEffect(() => {
     dispatch(fetchUser(userSession));
-  }, [dispatch, userSession]);
+  }, [dispatch]);
 
   // get user
   const user = useSelector((state) => state.user);
   useEffect(() => {
-    if (
-      user.errors &&
-      path.pathname != "/login" &&
-      path.pathname != "/signup"
-    ) {
+    if (user.errors && path.pathname != "/login" && path.pathname != "/signup" ) {
       toast.error("Your session is expired, login before any further action");
       navigate("/login");
     }
     if (user.user) {
       dispatch(getHouses());
     }
-  }, [user, dispatch, navigate, path.pathname]);
+  }, [user, dispatch, navigate]);
   return <Outlet />;
 };
 
