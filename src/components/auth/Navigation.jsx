@@ -13,7 +13,7 @@ const Navigation = ({ login }) => {
     >
       <h5>Logo</h5>
       <Button variant="primary">
-        <Link to={login ? "/login" : "signup"} className="text-white">
+        <Link to={login ? "/login" : "/signup"} className="text-white">
           {login ? "Login" : "Sign up"}
         </Link>
       </Button>
