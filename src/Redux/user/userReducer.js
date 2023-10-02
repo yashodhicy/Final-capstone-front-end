@@ -26,9 +26,6 @@ const reducer = createSlice({
   },
   extraReducers: (build) => {
     build.addCase(fetchUser.fulfilled, (state, { payload }) => {
-      toast.success(
-        "You successfully logged in, welcome " + payload.data.data.username
-      );
       return {
         ...state,
         user: payload.data.data,
