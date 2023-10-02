@@ -1,4 +1,5 @@
 import './componentsCss/houses.css';
+import 'font-awesome/css/font-awesome.min.css';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -62,10 +63,10 @@ const Houses = () => {
       </div>
       <div className="btn">
         <button className="prev" type="button" disabled={prevdis} onClick={prev}>
-          <i className="fa-solid fa-caret-left" />
+          <i className="fa fa-caret-left" />
         </button>
         <button className="next" type="button" disabled={buttondis} onClick={next}>
-          <i className="fa-solid fa-caret-right" />
+          <i className="fa fa-caret-right" />
         </button>
       </div>
     </section>

@@ -8,7 +8,7 @@ import Reservation from "./routes/Reservation";
 import Root from "./routes/Root";
 import "./App.css";
 import Houses from "./components/House";
-import HouseDetails from "./HouseDetails";
+import HouseDetails from "./components/HouseDetails";
 import Signup from "./routes/auth/Signup";
 import Signin from "./routes/auth/Signin";
 import AddHouse from "./components/AddHouse";
