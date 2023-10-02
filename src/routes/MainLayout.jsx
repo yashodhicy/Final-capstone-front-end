@@ -10,15 +10,19 @@ const MainLayout = () => {
   const dispatch = useDispatch();
   const userSession = retrive("session");
   const navigate = useNavigate();
-  const path = useLocation()
+  const path = useLocation();
   useEffect(() => {
     dispatch(fetchUser(userSession));
-  }, [dispatch]);
+  }, [dispatch, path.pathname]);
 
   // get user
   const user = useSelector((state) => state.user);
   useEffect(() => {
-    if (user.errors && path.pathname != "/login" && path.pathname != "/signup" ) {
+    if (
+      user.errors &&
+      path.pathname != "/login" &&
+      path.pathname != "/signup"
+    ) {
       toast.error("Your session is expired, login before any further action");
       navigate("/login");
     }
