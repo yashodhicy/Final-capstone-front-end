@@ -1,12 +1,14 @@
 .house-details {
-    height: calc(100% - 13rem);
-    margin: 8rem 2rem 0;
+  height: calc(100% - 13rem);
+  margin: 8rem 2rem 0;
 }
+
 .details,
 .row {
   height: 100%;
   justify-content: center;
 }
+
 .house-imgc {
   display: flex;
   justify-content: center;
@@ -14,43 +16,44 @@
 }
 
 .house-image {
-    width: 30rem;
-    height: 30rem;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 24px 30px, rgba(0, 0, 0, 0.22) 0px 24px 12px;
+  width: 30rem;
+  height: 30rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 24px 30px, rgba(0, 0, 0, 0.22) 0 24px 12px;
 }
 
 .info {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .reserve-btn {
-    display: flex;
-    height: 4rem;
-    width: 12rem;
-    border-radius: 3rem;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  height: 4rem;
+  width: 12rem;
+  border-radius: 3rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .prev {
-    border-radius: 0 3rem 3rem 0;
+  border-radius: 0 3rem 3rem 0;
 }
 
 @media (max-width: 1000px) {
-    .house-details {
-        margin-top: 3rem;
-    }
-    .house-image {
-        width: 15rem;
-        height: 15rem;
-        box-shadow: rgba(0, 0, 0, 0.3) 0px 24px 30px, rgba(0, 0, 0, 0.22) 0px 24px 12px;
-    } 
+  .house-details {
+    margin-top: 3rem;
+  }
 
-    .prev{
-        display: flex;
-        position: absolute;
-        bottom:1rem;
-    }
+  .house-image {
+    width: 15rem;
+    height: 15rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 24px 30px, rgba(0, 0, 0, 0.22) 0 24px 12px;
+  }
+
+  .prev {
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+  }
 }

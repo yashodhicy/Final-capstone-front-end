@@ -56,17 +56,17 @@ const HouseDetails = () => {
                   className="reserve-btn"
                   onClick={handleReserve}
                 >
-                  <i class="fa fa-home fa-2x " aria-hidden="true"></i>
+                  <i className="fa fa-home fa-2x " aria-hidden="true"></i>
 
                   RESERVE
 
-                  <i class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+                  <i className="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
                 </button>
               </div>
             </Col>
           </Row>
           <button className="prev" type="button" onClick={()=> navigate(-1)} >
-            <i class="fa fa-caret-left fa-2x" aria-hidden="true"></i>
+            <i className="fa fa-caret-left fa-2x" aria-hidden="true"></i>
         </button>
           
         </Container>
