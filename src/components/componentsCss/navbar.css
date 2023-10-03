@@ -128,4 +128,8 @@
   .top a {
     font-size: 1rem;
   }
+
+  .mobile {
+    display: none;
+  }
 }

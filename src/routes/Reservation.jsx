@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../components/Modal";
 import ReactDatePicker from "react-datepicker";
-import { Country, State, City } from "country-state-city";
-import { Button, Form } from "react-bootstrap";
-import TextTruncate from "react-text-truncate";
+import { City } from "country-state-city";
+import {  Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { getReservations, reserve } from "../Redux/reservation/middlewares";
+import { reserve } from "../Redux/reservation/middlewares";
+import "../components/componentsCss/reservation.css";
 
 const Reservation = () => {
   const dispatch = useDispatch();
@@ -45,13 +45,11 @@ const Reservation = () => {
     dispatch(reserve(data))
   };
   return (
-    <article
-      className="d-flex align-items-center p-3 w-100 h-100 text-white"
-      style={{
-        backgroundColor: "yellowgreen",
-      }}
+    <div className="res-container">
+    <article 
+    className="d-flex align-items-center p-3 w-100 h-100 text-white reserve"  
     >
-      <div style={{ margin: "auto", padding: 10 }}>
+      <div className='form-container' style={{ margin: "auto", padding: 10 }}>
         <h1
           style={{
             fontSize: 50,
@@ -70,23 +68,18 @@ const Reservation = () => {
             backgroundColor: "white",
           }}
         />
-        <form
+        <form className="form-reserve"
           onSubmit={submitReservation}
-          style={{ width: "100%", maxWidth: 400, margin: "auto" }}
         >
-          <div className="d-flex justify-content-between gap-3 p-2 align-items-center">
+          <div className="d-flex justify-content-between p-2 align-items-center">
             <label style={{ fontWeight: "bold" }} htmlFor="house">
               Select the house
             </label>
-            <div className="d-flex w-50 gap-1">
+            <div className="d-flex w-50 gap-1 select align-items-end">
               <Modal selectHouse={selectHouse} show={true} />
-              <TextTruncate
-                line={1}
-                element="span"
-                truncateText="…"
-                text={selectedHouse ? selectedHouse.name : "not selected"}
-                // textTruncateChild={<a href="#">Read on</a>}
-              />
+              <span>
+                {selectedHouse ? selectedHouse.name : "not selected"}
+                </span>
             </div>
           </div>
           <div className="d-flex justify-content-between p-2 align-items-center">
@@ -149,13 +142,14 @@ const Reservation = () => {
           </div>
           <div className="d-flex flex-column align-items-center">
             <h2>Total charge: 300$</h2>
-            <Button type="submit" variant="light">
+            <button className='reserve-button' type="submit" >
               RESERVE NOW
-            </Button>
+            </button>
           </div>
         </form>
       </div>
     </article>
+    </div>
   );
 };
 

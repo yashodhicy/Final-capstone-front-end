@@ -1,0 +1,47 @@
+.res-container {
+  position: relative;
+  background-image: url('../src/assets/reserveback.jpeg');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.res-container::before {
+  content: "";
+  position: absolute;
+  background-color: var(--green);
+  opacity: 90%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.reserve {
+  position: relative;
+  z-index: 99 !important;
+}
+
+.form-reserve {
+  width: 100%;
+}
+
+.reserve-button {
+  background-color: white;
+  color: var(--green);
+  width: 10rem;
+  border-radius: 3rem;
+}
+
+.reserve-button:hover {
+  color: white;
+}
+
+input {
+  border-radius: 0.5rem;
+}
+
+.select {
+  flex-direction: column;
+}
