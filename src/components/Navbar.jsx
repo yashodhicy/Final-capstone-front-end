@@ -49,7 +49,7 @@ const Navbar = () => {
           onKeyDown={() => settray(false)}
           tabIndex={0}
         >
-          <i className="fa-solid fa-bars" />
+          <i className="fa fa-solid fa-bars" />
         </span>
       </div>
       <div

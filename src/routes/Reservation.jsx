@@ -1,21 +1,18 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Modal from "../components/Modal";
 import ReactDatePicker from "react-datepicker";
 import { City } from "country-state-city";
 import {  Form } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useDispatch} from "react-redux";
 import { reserve } from "../Redux/reservation/middlewares";
-import "../components/componentsCss/reservation.css";
+import "../components/componentsCss/reservation.css";;
+import dateDifference from "../components/utils/dateDifference";
 
 const Reservation = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    // dispatch(getReservations("I'm passed as argument"));
-  }, [dispatch]);
-  const reservations = useSelector((state) => state.reservations);
 
   const [selectedHouse, setSelectedHouse] = useState(null);
   const selectHouse = (house) => setSelectedHouse(house);
@@ -32,17 +29,15 @@ const Reservation = () => {
   };
   const submitReservation = (e) => {
     e.preventDefault();
-    console.log("difference", new Date(checkoutDay).toISOString() - new Date(bookDate).toISOString());
+    if (!validate()) return toast.error("Please fill all the required fields");
+    if(dateDifference(bookDate, checkoutDay) == 0) return toast.error("The booking and checkout dates are meant to be different!");
     const data = {
       bookingDate: new Date(bookDate).toISOString(),
       checkoutDate: new Date(checkoutDay).toISOString(),
       house: selectedHouse,
     };
 
-    console.log(data);
-    if (!validate()) return toast.error("Please fill all the required fields");
-
-    dispatch(reserve(data))
+    dispatch(reserve(data));
   };
   return (
     <div className="res-container">
@@ -141,7 +136,13 @@ const Reservation = () => {
             </div>
           </div>
           <div className="d-flex flex-column align-items-center">
-            <h2>Total charge: 300$</h2>
+            <h2>
+              Total charge:{" "}
+              {selectedHouse
+                ? dateDifference(bookDate, checkoutDay) * selectedHouse.price
+                : 0}
+              $
+            </h2>
             <button className='reserve-button' type="submit" >
               RESERVE NOW
             </button>

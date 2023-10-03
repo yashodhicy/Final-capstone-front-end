@@ -11,18 +11,17 @@ const DeleteHouse = () => {
 
   useEffect(() => {
     dispatch(userHouses());
-    },[]);
+  }, [dispatch]);
 
-    const userhouses = useSelector((state) => state.Houses.userhouses);
-    const navigate = useNavigate();
+  const userhouses = useSelector((state) => state.Houses.userhouses);
+  const navigate = useNavigate();
 
-    const handleDelete = async(houseId) => {
-        await dispatch(deleteHouseThunk(houseId)).then((action) => {
-        dispatch(userHouses())
-        navigate('/delete');
-        console.log('deleteHouseThunk action:', action);
-      });
-
+  const handleDelete = async (houseId) => {
+    await dispatch(deleteHouseThunk(houseId)).then((action) => {
+      dispatch(userHouses());
+      navigate("/delete");
+      console.log("deleteHouseThunk action:", action);
+    });
   };
 
   return (
@@ -57,13 +56,22 @@ const DeleteHouse = () => {
               <Button type ="button" variant='danger' onClick={() => handleDelete(e.id)}>Delete House</Button>
             </div>
 
+                <div>
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => handleDelete(e.id)}
+                  >
+                    Delete House
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
-
-        ))}
-      </div> )}
-    </section>
+        )}
+      </section>
     </div>
   );
-}
+};
 
 export default DeleteHouse;

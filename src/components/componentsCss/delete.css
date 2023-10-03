@@ -1,11 +1,11 @@
 .house-div {
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 1000px) {
-    .delete-image {
-        height: 50%;
-        width: 50%;
-    }
+  .delete-image {
+    height: 50%;
+    width: 50%;
   }
+}
