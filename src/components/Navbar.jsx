@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const setNavigationBackground = (matchPath) => {
     if (path.pathname === matchPath)
-      return { backgroundColor: "yellowgreen", color: "white" };
+      return { backgroundColor: "var(--green)", color: "white" };
     return {};
   };
   const navigationClass = (matchPath) => {
@@ -42,22 +42,22 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="mobile bars">
+      <div className="mobile-nav">
         <span
           role="button"
-          onClick={() => settray(false)}
-          onKeyDown={() => settray(false)}
+          onClick={() => settray(!tray)}
+          onKeyDown={() => settray(!tray)}
           tabIndex={0}
         >
-          <i className="fa fa-solid fa-bars" />
+          <i className="fa fa-solid fa-bars fa-lg p-2" />
         </span>
       </div>
       <div
         id="navbar"
         className={tray ? "block" : "show"}
         role="button"
-        onClick={() => settray(true)}
-        onKeyDown={() => settray(false)}
+        onClick={() => settray(!tray)}
+        onKeyDown={() => settray(!tray)}
         tabIndex={0}
       >
         <div className="top">
@@ -112,8 +112,8 @@ const Navbar = () => {
         <div
           className="mobile cancel"
           role="button"
-          onClick={() => settray(true)}
-          onKeyDown={() => settray(true)}
+          onClick={() => settray(!tray)}
+          onKeyDown={() => settray(!tray)}
           tabIndex={0}
         >
           <i className="fa fa-solid fa-xmark" />

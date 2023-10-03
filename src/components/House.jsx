@@ -1,8 +1,9 @@
 import './componentsCss/houses.css';
 import 'font-awesome/css/font-awesome.min.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 
 const Houses = () => {
 
@@ -11,12 +12,34 @@ const Houses = () => {
   const [buttondis, setbuttondis] = useState(false);
   const [prevdis, setprev] = useState(false);
   const [house, setcar] = useState(1);
-  const perpage = 3;
+  const [perpage, setPerPage] = useState(1);
+  
+  const handleResize = () => {
+    // Check the window width and update perpage accordingly
+    if (window.innerWidth <= 768) {
+      setPerPage(1);
+    } else {
+      setPerPage(3);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    // Call handleResize initially to set perpage based on the current window width
+    handleResize();
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   const last = house * perpage;
   const first = last - perpage;
   const each = houses.slice(first, last);
   const next = () => {
-    if (house >= Math.round(houses.length / 3)) {
+    const totalPages = Math.ceil(houses.length / perpage);
+  
+    if (house >= totalPages) {
       setbuttondis(true);
     } else {
       setbuttondis(false);
@@ -54,19 +77,19 @@ const Houses = () => {
               . . .
             </p>
             <ul>
-              <li><i className=" fa fa-brands fa-twitter" /></li>
-              <li><i className=" fa fa-brands fa-facebook-f" /></li>
-              <li><i className=" fa fa-brands fa-instagram" /></li>
+              <li><i className="fa fa-brands fa-twitter" /></li>
+              <li><i className="fa fa-brands fa-facebook-f" /></li>
+              <li><i className="fa fa-brands fa-instagram" /></li>
             </ul>
           </div>
         ))}
       </div>
       <div className="btn">
         <button className="prev" type="button" disabled={prevdis} onClick={prev}>
-          <i className="fa fa-solid fa-caret-left" />
+          <i className="fa fa-caret-left" />
         </button>
         <button className="next" type="button" disabled={buttondis} onClick={next}>
-          <i className="fa fa-solid fa-caret-right" />
+          <i className="fa fa-caret-right" />
         </button>
       </div>
     </section>

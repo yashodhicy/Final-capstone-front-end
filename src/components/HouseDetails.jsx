@@ -29,7 +29,7 @@ const HouseDetails = () => {
               
             </Col>
             <Col className="info" md={4} >
-              <h2>{house.name.toUpperCase()}</h2>
+              <h2 className="house-det">{house.name.toUpperCase()}</h2>
               <Table striped hover className="table">
                 <tbody>
                   <tr>
@@ -65,9 +65,12 @@ const HouseDetails = () => {
               </div>
             </Col>
           </Row>
-          <button className="prev" type="button" onClick={()=> navigate(-1)} >
+
+          <Row className="prevr">
+          <button className="prevr" type="button" onClick={()=> navigate(-1)} >
             <i className="fa fa-caret-left fa-2x" aria-hidden="true"></i>
-        </button>
+          </button>
+          </Row>
           
         </Container>
         
