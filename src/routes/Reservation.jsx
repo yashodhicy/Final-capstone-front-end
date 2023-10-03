@@ -6,16 +6,12 @@ import { Country, State, City } from "country-state-city";
 import { Button, Form } from "react-bootstrap";
 import TextTruncate from "react-text-truncate";
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
-import { getReservations, reserve } from "../Redux/reservation/middlewares";
+import { useDispatch } from "react-redux";
+import { reserve } from "../Redux/reservation/middlewares";
+import dateDifference from "../components/utils/dateDifference";
 
 const Reservation = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    // dispatch(getReservations("I'm passed as argument"));
-  }, [dispatch]);
-  const reservations = useSelector((state) => state.reservations);
 
   const [selectedHouse, setSelectedHouse] = useState(null);
   const selectHouse = (house) => setSelectedHouse(house);
@@ -32,17 +28,15 @@ const Reservation = () => {
   };
   const submitReservation = (e) => {
     e.preventDefault();
-    console.log("difference", new Date(checkoutDay).toISOString() - new Date(bookDate).toISOString());
+    if (!validate()) return toast.error("Please fill all the required fields");
+    if(dateDifference(bookDate, checkoutDay) == 0) return toast.error("The booking and checkout dates are meant to be different!");
     const data = {
       bookingDate: new Date(bookDate).toISOString(),
       checkoutDate: new Date(checkoutDay).toISOString(),
       house: selectedHouse,
     };
 
-    console.log(data);
-    if (!validate()) return toast.error("Please fill all the required fields");
-
-    dispatch(reserve(data))
+    dispatch(reserve(data));
   };
   return (
     <article
@@ -148,7 +142,13 @@ const Reservation = () => {
             </div>
           </div>
           <div className="d-flex flex-column align-items-center">
-            <h2>Total charge: 300$</h2>
+            <h2>
+              Total charge:{" "}
+              {selectedHouse
+                ? dateDifference(bookDate, checkoutDay) * selectedHouse.price
+                : 0}
+              $
+            </h2>
             <Button type="submit" variant="light">
               RESERVE NOW
             </Button>
