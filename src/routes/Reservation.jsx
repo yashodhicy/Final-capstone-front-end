@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 import { useDispatch} from "react-redux";
 import { reserve } from "../Redux/reservation/middlewares";
-import "../components/componentsCss/reservation.css";;
+import "../components/componentsCss/reservation.css";
 import dateDifference from "../components/utils/dateDifference";
 
 const Reservation = () => {

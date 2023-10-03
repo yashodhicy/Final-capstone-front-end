@@ -38,7 +38,6 @@ const HouseModalItem = ({ house, setSelected, elToMatch }) => {
             const selected = houses.find(
               (hou) => hou.id == e.target.value
             );
-            console.log(selected);
             setSelected(selected);
           }
         }}

@@ -55,17 +55,7 @@ const DeleteHouse = () => {
             <div>
               <Button type ="button" variant='danger' onClick={() => handleDelete(e.id)}>Delete House</Button>
             </div>
-
-                <div>
-                  <button
-                    type="button"
-                    className="btn"
-                    onClick={() => handleDelete(e.id)}
-                  >
-                    Delete House
-                  </button>
-                </div>
-              </div>
+          </div>
             ))}
           </div>
         )}
