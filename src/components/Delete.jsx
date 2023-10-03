@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteHouseThunk } from '../Redux/deleteSlice.js';
 import { Link, useNavigate } from 'react-router-dom';
 import { userHouses } from '../Redux/HouseSlice.js';
+import '../components/componentsCss/delete.css'
+import { Button } from 'react-bootstrap';
 
 const DeleteHouse = () => {
   const dispatch = useDispatch();
@@ -27,8 +29,8 @@ const DeleteHouse = () => {
     <div>
       <section className="houses">
       <div className="header">
-        <h2>Need a House to Delete ?</h2>
-        <p>checkout our available Houses</p>
+        <h2>Need to delete your house?</h2>
+        <p>After deleting others can not reserve your house</p>
       </div>
 
       {userhouses.length === 0 ? (
@@ -36,8 +38,8 @@ const DeleteHouse = () => {
       ) : (
       <div className="all">
        {userhouses.map((e) => (
-          <div className="each" key={e.id}>
-            <div className="image">
+          <div className="each d-flex house-div" key={e.id}>
+            <div className="image delete-image">
               <img src={e.image} alt={e.name} crossOrigin="anonymous | use-credentials" />
             </div>
             <Link to={`/houses/${e.id}`} className="link">{e.name}</Link>
@@ -52,7 +54,7 @@ const DeleteHouse = () => {
             </ul>
 
             <div>
-              <button type = "button" className="btn" onClick={() => handleDelete(e.id)}>Delete House</button>
+              <Button type ="button" variant='danger' onClick={() => handleDelete(e.id)}>Delete House</Button>
             </div>
 
           </div>
