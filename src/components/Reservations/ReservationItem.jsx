@@ -1,5 +1,4 @@
-import React from "react";
-
+/* eslint-disable react/prop-types */
 const ReservationItem = ({ reservation }) => {
   return reservation ? (
     <li className="my-2 shadow border p-3 rounded d-flex flex-column flex-md-row w-100 justify-content-md-between align-items-center align-items-md-start">
@@ -32,17 +31,17 @@ const ReservationItem = ({ reservation }) => {
         </p>
       </div>
       <div className="d-flex flex-column align-items-center">
-        <h4 className="text-dark">Total sharge: ${reservation.total_charge}</h4>
+        <h4 className="text-dark mb-4">Total sharge: ${reservation.total_charge}</h4>
         {reservation.house ? (
           <div
             className="rounded-3"
             style={{
               width: 300,
               overflow: "hidden",
-              height: 300,
+              height: 250,
             }}
           >
-            <img className="w-100" src={reservation.house.image} alt="" />
+            <img className="w-100 rounded-3" src={reservation.house.image} alt="" />
           </div>
         ) : (
           "...loading image"

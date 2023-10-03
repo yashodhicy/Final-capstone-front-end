@@ -6,19 +6,24 @@ import { Country, State, City } from "country-state-city";
 import { Button, Form } from "react-bootstrap";
 import TextTruncate from "react-text-truncate";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { reserve } from "../Redux/reservation/middlewares";
 import dateDifference from "../components/utils/dateDifference";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 const Reservation = () => {
   const dispatch = useDispatch();
-
-  const [selectedHouse, setSelectedHouse] = useState(null);
+  const houses = useSelector(state => state.Houses).houses
+  const location = useLocation()
+  const params = new URLSearchParams(window.location.search)
+  const [selectedHouse, setSelectedHouse] = useState(houses.find(house => house.id == params.get("id")));
   const selectHouse = (house) => setSelectedHouse(house);
   const [startDate, setStartDate] = useState(new Date());
   const [bookDate, setBookDate] = useState(startDate);
   const [checkoutDay, setSheckoutDay] = useState(startDate);
   const [city, setCity] = useState("");
+
+  useEffect(() => {setSelectedHouse(houses.find(house => house.id == params.get("id")))}, [houses])
 
   const validate = () => {
     for (let el of [selectedHouse, bookDate, checkoutDay, city]) {
@@ -73,7 +78,7 @@ const Reservation = () => {
               Select the house
             </label>
             <div className="d-flex w-50 gap-1">
-              <Modal selectHouse={selectHouse} show={true} />
+              <Modal selectedHouse={selectedHouse} selectHouse={selectHouse} show={true} />
               <TextTruncate
                 line={1}
                 element="span"

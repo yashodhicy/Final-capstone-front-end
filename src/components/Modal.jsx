@@ -7,19 +7,19 @@ import { useSelector } from "react-redux";
 import HouseModalItem from "./HouseModalItem";
 // import { Form } from "react-router-dom";
 
-function Example({selectHouse}) {
+function Example({ selectHouse, selectedHouse }) {
   const [show, setShow] = useState(false);
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const houses = useSelector(state => state.Houses).houses
+  const houses = useSelector((state) => state.Houses).houses;
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Select
+      <Button disabled={!!selectedHouse} variant="primary" onClick={handleShow}>
+        {selectedHouse ? "selected" : "select"}
       </Button>
 
       <Modal
@@ -35,19 +35,27 @@ function Example({selectHouse}) {
         <Modal.Body>
           {/* Modal body */}
           <ListGroup as="ol">
-            {
-              houses.map((house, index) => <HouseModalItem elToMatch={selected} setSelected={setSelected} key={index} house={house} />)
-            }
+            {houses.map((house, index) => (
+              <HouseModalItem
+                elToMatch={selected}
+                setSelected={setSelected}
+                key={index}
+                house={house}
+              />
+            ))}
           </ListGroup>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={() => {
-            selectHouse(selected)
-            handleClose()
-          }}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              selectHouse(selected);
+              handleClose();
+            }}
+          >
             Continue
           </Button>
         </Modal.Footer>

@@ -27,7 +27,6 @@ export const getReservations = createAsyncThunk(
     const response = await axios.get(
       `${baseUrl}/myreservations${sessionParamsGenerator()}`
     );
-    console.log(response.data);
     return response.data;
   }
 );

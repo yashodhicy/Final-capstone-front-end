@@ -34,7 +34,6 @@ export const Deletehouse = createAsyncThunk('house/Deletehouse', async (payload)
 
 export const userHouses = createAsyncThunk('house/userhouses',async() => {
   const response = await axios.get(`${baseUrl}/houses/userhouses${sessionParamsGenerator()}`);
-  console.log(response);
   return response.data;
 })
 

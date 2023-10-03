@@ -194,12 +194,6 @@ const AddHouse = () => {
                 House Image
                 <input
                   onBlur={(e) => {
-                    window.addEventListener('online', (e) => {
-                      console.log('onLine')
-                    })
-                    window.addEventListener('offline', (e) => {
-                      console.log('offline')
-                    })
                     if(!navigator.onLine && e.target.value.startsWith("http")) {
                       toast.error("Please connect to the internet so that we can check the validity of the image!")
                       setImageTest({isImage: false, pending: false})

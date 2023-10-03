@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
 import ReservationItem from "../components/Reservations/ReservationItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservations } from "../Redux/reservation/middlewares";
+import { useEffect } from "react";
 
 const MyReservations = () => {
   const dispatch = useDispatch();
