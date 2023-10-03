@@ -62,7 +62,7 @@
 }
 
 .btn button {
-  background-color: greenyellow;
+  background-color: var(--green);
   padding: 20px;
   outline: none;
   border: none;
