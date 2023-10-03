@@ -78,7 +78,7 @@ const Reservation = () => {
               Select the house
             </label>
             <div className="d-flex w-50 gap-1">
-              <Modal selectedHouse={selectedHouse} selectHouse={selectHouse} show={true} />
+              <Modal selectedHouse={houses.find(house => house.id == params.get("id"))} selectHouse={selectHouse} show={true} />
               <TextTruncate
                 line={1}
                 element="span"
