@@ -127,10 +127,6 @@
   .top li:hover {
     background-color: var(--green);
   }
-
-  /* .mobile {
-    display: none;
-  } */
 }
 
 @media (min-width: 1000px) {
