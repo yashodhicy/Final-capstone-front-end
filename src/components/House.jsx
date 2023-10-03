@@ -54,19 +54,19 @@ const Houses = () => {
               . . .
             </p>
             <ul>
-              <li><i className="fa-brands fa-twitter" /></li>
-              <li><i className="fa-brands fa-facebook-f" /></li>
-              <li><i className="fa-brands fa-instagram" /></li>
+              <li><i className=" fa fa-brands fa-twitter" /></li>
+              <li><i className=" fa fa-brands fa-facebook-f" /></li>
+              <li><i className=" fa fa-brands fa-instagram" /></li>
             </ul>
           </div>
         ))}
       </div>
       <div className="btn">
         <button className="prev" type="button" disabled={prevdis} onClick={prev}>
-          <i className="fa fa-caret-left" />
+          <i className="fa fa-solid fa-caret-left" />
         </button>
         <button className="next" type="button" disabled={buttondis} onClick={next}>
-          <i className="fa fa-caret-right" />
+          <i className="fa fa-solid fa-caret-right" />
         </button>
       </div>
     </section>

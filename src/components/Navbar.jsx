@@ -96,16 +96,16 @@ const Navbar = () => {
         <div className="socials">
           <ul>
             <li>
-              <i className="fa-brands fa-twitter" />
+              <i className="fa fa-brands fa-twitter" />
             </li>
             <li>
-              <i className="fa-brands fa-facebook-f" />
+              <i className="fa fa-brands fa-facebook-f" />
             </li>
             <li>
-              <i className="fa-brands fa-pinterest-p" />
+              <i className="fa fa-brands fa-pinterest-p" />
             </li>
             <li>
-              <i className="fa-brands fa-google-plus-g" />
+              <i className="fa fa-brands fa-google-plus-g" />
             </li>
           </ul>
         </div>
@@ -116,7 +116,7 @@ const Navbar = () => {
           onKeyDown={() => settray(true)}
           tabIndex={0}
         >
-          <i className="fa-solid fa-xmark" />
+          <i className="fa fa-solid fa-xmark" />
         </div>
       </div>
     </>

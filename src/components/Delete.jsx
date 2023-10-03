@@ -46,9 +46,9 @@ const DeleteHouse = () => {
               . . .
             </p>
             <ul>
-              <li><i className="fa-brands fa-twitter" /></li>
-              <li><i className="fa-brands fa-facebook-f" /></li>
-              <li><i className="fa-brands fa-instagram" /></li>
+              <li><i className="fa fa-brands fa-twitter" /></li>
+              <li><i className="fa fa-brands fa-facebook-f" /></li>
+              <li><i className="fa fa-brands fa-instagram" /></li>
             </ul>
 
             <div>
