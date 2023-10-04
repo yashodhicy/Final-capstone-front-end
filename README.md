@@ -37,9 +37,9 @@
 
 <https://final-capstone-n7jz.onrender.com/>
 
-![HomePage](image-1.png)
-![HouseDetails](image-2.png)
-![Reserve](image-3.png)
+![HomePage](./assets/image-1.png)
+![HouseDetails](./assets/image-2.png)
+![Reserve](./assets/image-3.png)
 <br>
 <br>
 
