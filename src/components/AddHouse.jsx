@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AddnewHouse } from "../Redux/HouseSlice";
 import isImgUrl from "./utils/imageUrlCheck";
 import { toast } from "react-toastify";
-import "../components/componentsCss/addhouse.css"
+import "../components/componentsCss/addhouse.css";
+import FormField from "./FormField";
 
 const AddHouse = () => {
   const dispatch = useDispatch();
@@ -41,8 +42,8 @@ const AddHouse = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!imageTest.isImage) {
-      toast.error("The image url is not an image please review this field")
-      return
+      toast.error("The image URL is not valid. Please review this field.");
+      return;
     }
     if (
       !houseDatas.name ||
@@ -53,7 +54,7 @@ const AddHouse = () => {
       !houseDatas.location ||
       !houseDatas.image
     ) {
-      setError("Please Fill All The Fields");
+      setError("Please fill in all the fields.");
       setTimeout(() => {
         setError("");
       }, 3000);
@@ -81,7 +82,7 @@ const AddHouse = () => {
       location: "",
       image: "",
     });
-    setSuccess("House Added Successfully");
+    setSuccess("House added successfully.");
     navigate("/");
   };
 
@@ -89,97 +90,66 @@ const AddHouse = () => {
     setHouseDatas({ ...houseDatas, [e.target.name]: e.target.value });
   };
 
+  const formFields = [
+    {
+      name: "name",
+      value: houseDatas.name,
+      type: "text",
+      placeholder: "Enter House Name",
+    },
+    {
+      name: "area",
+      value: houseDatas.area,
+      type: "number",
+      placeholder: "Enter House area",
+    },
+    {
+      name: "price",
+      value: houseDatas.price,
+      type: "number",
+      placeholder: "Enter House Price",
+    },
+    {
+      name: "description",
+      value: houseDatas.description,
+      type: "text",
+      placeholder: "Enter House Description",
+    },
+    {
+      name: "number_of_rooms",
+      value: houseDatas.number_of_rooms,
+      type: "number",
+      placeholder: "Enter Number of Rooms",
+    },
+    {
+      name: "location",
+      value: houseDatas.location,
+      type: "text",
+      placeholder: "Enter the location of the house",
+    }
+  ];
+
   return (
-    <div className='res-container'>
-    <section className="container w-100 h-100 d-flex justify-content-center align-items-center">
-      <div>
-        <div className="col-md-10 w-100 ">
-          {success && <div className="alert alert-success">{success}</div>}
-          {error && <div className="alert alert-danger">{error}</div>}
-          <h1 className="title">Add New House</h1>
-          <form onSubmit={handleSubmit} className="w-100 mt-5 d-flex add-form">
-            <div className="mb-3">
-              <label htmlFor="houseName" className="form-label">
-                <input
-                  type="text"
-                  name="name"
-                  value={houseDatas.name}
+    <div className="res-container">
+      <section className="container w-100 h-100 d-flex justify-content-center align-items-center">
+        <div>
+          <div className="col-md-10 w-100 ">
+            {success && <div className="alert alert-success">{success}</div>}
+            {error && <div className="alert alert-danger">{error}</div>}
+            <h1 className="title">Add New House</h1>
+            <form onSubmit={handleSubmit} className="w-100 mt-5 d-flex add-form">
+              {formFields.map((field) => (
+                <FormField
+                  key={field.name}
+                  name={field.name}
+                  value={field.value}
+                  type={field.type}
+                  placeholder={field.placeholder}
                   onChange={handleChange}
-                  id="houseName"
-                  className="form-control"
-                  placeholder="Enter House Name"
                 />
-              </label>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="houseArea" className="form-label">
-                <input
-                  type="number"
-                  name="area"
-                  value={houseDatas.area}
-                  onChange={handleChange}
-                  className="form-control"
-                  id="houseArea"
-                  placeholder="Enter House area"
-                />
-              </label>
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="housePrice" className="form-label">
-                <input
-                  type="number"
-                  name="price"
-                  value={houseDatas.price}
-                  onChange={handleChange}
-                  className="form-control"
-                  id="housePrice"
-                  placeholder="Enter House Price"
-                />
-              </label>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="houseDescription" className="form-label">
-                <input
-                  type="text"
-                  name="description"
-                  value={houseDatas.description}
-                  onChange={handleChange}
-                  className="form-control"
-                  id="houseDescription"
-                  placeholder="Enter House Description"
-                />
-              </label>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="houseRooms" className="form-label">
-                <input
-                  type="number"
-                  name="number_of_rooms"
-                  value={houseDatas.number_of_rooms}
-                  onChange={handleChange}
-                  className="form-control"
-                  id="houseRooms"
-                  placeholder="Enter Number of Rooms"
-                />
-              </label>
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="houseLocation" className="form-label">
-                <input
-                  type="text"
-                  name="location"
-                  value={houseDatas.location}
-                  onChange={handleChange}
-                  className="form-control"
-                  id="houseLocation"
-                  placeholder="Enter the location of the house"
-                />
-              </label>
-            </div>
-
-            <div className="mb-3">
+              ))}
+              {imageTest.pending && <p>Testing image...</p>}
+              <div className="mb-3">
               <label htmlFor="houseImage" className="form-label">
                 <input
                   onBlur={(e) => {
@@ -204,14 +174,13 @@ const AddHouse = () => {
                 />
               </label>
             </div>
-
-            <div className="mb-3">
-              <input type="submit" className="add-house" value="Add House" />
-            </div>
-          </form>
+              <button type="submit" className="btn btn-primary">
+                Add House
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 };
