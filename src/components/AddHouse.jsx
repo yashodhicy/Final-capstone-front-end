@@ -1,60 +1,88 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { AddnewHouse } from '../Redux/HouseSlice';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { AddnewHouse } from "../Redux/HouseSlice";
+import isImgUrl from "./utils/imageUrlCheck";
+import { toast } from "react-toastify";
 import "../components/componentsCss/addhouse.css"
 
 const AddHouse = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const storage = localStorage.getItem('token');
+  const storage = localStorage.getItem("token");
   const user = JSON.parse(storage);
+  const [imageTest, setImageTest] = useState({
+    isImage: false,
+    pending: false,
+  });
+  const testImage = async (url) => {
+    setImageTest({ isImage: false, pending: true });
+    const result = await isImgUrl(url);
+    setImageTest({ isImage: result, pending: false });
+    return new Promise((resolve, reject) => {
+      if (result) resolve({ isImage: result, pending: false });
+      else reject({ isImage: result, pending: false });
+    });
+  };
   const [houseDatas, setHouseDatas] = useState({
-    name: '',
-    area: '',
-    price: '',
-    description: '',
-    number_of_rooms: '',
-    location: '',
-    image: '',
-    uid: user && user.uid ? user.uid : null
+    name: "",
+    area: "",
+    price: "",
+    description: "",
+    number_of_rooms: "",
+    location: "",
+    image: "",
+    uid: user && user.uid ? user.uid : null,
   });
 
-  const [success, setSuccess] = useState('');
-  const [error, setError] = useState('');
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!houseDatas.name || !houseDatas.area || !houseDatas.price || !houseDatas.description || !houseDatas.number_of_rooms || !houseDatas.location || !houseDatas.image) {
-      setError('Please Fill All The Fields');
+    if (!imageTest.isImage) {
+      toast.error("The image url is not an image please review this field")
+      return
+    }
+    if (
+      !houseDatas.name ||
+      !houseDatas.area ||
+      !houseDatas.price ||
+      !houseDatas.description ||
+      !houseDatas.number_of_rooms ||
+      !houseDatas.location ||
+      !houseDatas.image
+    ) {
+      setError("Please Fill All The Fields");
       setTimeout(() => {
-        setError('');
+        setError("");
       }, 3000);
       return;
     }
+
     const formData = new FormData();
 
-    formData.append('house[name]', houseDatas.name);
-    formData.append('house[area]', houseDatas.area);
-    formData.append('house[price]', houseDatas.price);
-    formData.append('house[description]', houseDatas.description);
-    formData.append('house[number_of_rooms]', houseDatas.number_of_rooms);
-    formData.append('house[location]', houseDatas.location);
-    formData.append('house[image]', houseDatas.image);
-    formData.append('house[uid]', houseDatas.uid);
+    formData.append("house[name]", houseDatas.name);
+    formData.append("house[area]", houseDatas.area);
+    formData.append("house[price]", houseDatas.price);
+    formData.append("house[description]", houseDatas.description);
+    formData.append("house[number_of_rooms]", houseDatas.number_of_rooms);
+    formData.append("house[location]", houseDatas.location);
+    formData.append("house[image]", houseDatas.image);
+    formData.append("house[uid]", houseDatas.uid);
 
     await dispatch(AddnewHouse(formData));
     setHouseDatas({
-      name: '',
-      area: '',
-      price: '',
-      description: '',
-      number_of_rooms: '',
-      location: '',
-      image: '',
+      name: "",
+      area: "",
+      price: "",
+      description: "",
+      number_of_rooms: "",
+      location: "",
+      image: "",
     });
-    setSuccess('House Added Successfully');
-    navigate('/');
+    setSuccess("House Added Successfully");
+    navigate("/");
   };
 
   const handleChange = (e) => {
@@ -154,6 +182,18 @@ const AddHouse = () => {
             <div className="mb-3">
               <label htmlFor="houseImage" className="form-label">
                 <input
+                  onBlur={(e) => {
+                    if(!navigator.onLine && e.target.value.startsWith("http")) {
+                      toast.error("Please connect to the internet so that we can check the validity of the image!")
+                      setImageTest({isImage: false, pending: false})
+                      return
+                    }
+                    toast.promise(testImage(e.target.value), {
+                      pending: "Wait the while we are checking the image url",
+                      success: "The provided url is an image url",
+                      error: "The provided url is not an image url",
+                    });
+                  }}
                   type="text"
                   name="image"
                   value={houseDatas.image}
@@ -162,7 +202,6 @@ const AddHouse = () => {
                   id="houseImage"
                   placeholder="Enter the URL of house"
                 />
-
               </label>
             </div>
 

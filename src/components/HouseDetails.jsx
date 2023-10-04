@@ -1,11 +1,8 @@
 import "./componentsCss/housedetails.css";
-import 'font-awesome/css/font-awesome.min.css';
+import "font-awesome/css/font-awesome.min.css";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Container, Row, Col, Image, Table} from "react-bootstrap";
-
-
-
+import { Container, Row, Col, Image, Table } from "react-bootstrap";
 
 const HouseDetails = () => {
   const { houseId } = useParams();
@@ -14,9 +11,9 @@ const HouseDetails = () => {
   const houses = useSelector((state) => state.Houses).houses;
   const houseIdNumber = parseInt(houseId, 10);
   const house = houses.find((house) => houseIdNumber === house.id);
-  
+
   const handleReserve = () => {
-    navigate("/reserve");
+    navigate("/reserve?id=" + houseId);
   };
 
   if (house) {
@@ -26,7 +23,6 @@ const HouseDetails = () => {
           <Row>
             <Col md={8} className="house-imgc">
               <Image src={house.image} className="house-image m-2" />
-              
             </Col>
             <Col className="info" md={4} >
               <h2 className="house-det">{house.name.toUpperCase()}</h2>
@@ -52,15 +48,17 @@ const HouseDetails = () => {
               </Table>
 
               <div>
-              <button size="lg"
+                <button
+                  size="lg"
                   className="reserve-btn"
                   onClick={handleReserve}
                 >
                   <i className="fa fa-home fa-2x " aria-hidden="true"></i>
-
                   RESERVE
-
-                  <i className="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-chevron-circle-right fa-2x"
+                    aria-hidden="true"
+                  ></i>
                 </button>
               </div>
             </Col>
@@ -71,9 +69,8 @@ const HouseDetails = () => {
             <i className="fa fa-caret-left fa-2x" aria-hidden="true"></i>
           </button>
           </Row>
-          
+
         </Container>
-        
       </div>
     );
   } else {

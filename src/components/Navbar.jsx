@@ -73,8 +73,8 @@ const Navbar = () => {
                 Reserve
               </Link>
             </li>
-            <li style={setNavigationBackground("/myreserve")}>
-              <Link className={navigationClass("/myreserve")} to="myreserve">
+            <li style={setNavigationBackground("/reservations")}>
+              <Link className={navigationClass("/reservations")} to="reservations">
                 My Reservations
               </Link>
             </li>

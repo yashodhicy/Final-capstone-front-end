@@ -29,7 +29,6 @@ function SigninForm() {
           expiry,
         };
         save("session", data);
-        console.log(response);
         toast.success(
           "You signed in successfully, welcome " + response.data.data.username
         );
@@ -37,7 +36,6 @@ function SigninForm() {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
         if (err.response.status === 401)
           err.response.data.errors.forEach((error) => {
             toast.error(error);

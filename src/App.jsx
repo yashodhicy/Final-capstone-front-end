@@ -14,6 +14,8 @@ import Signin from "./routes/auth/Signin";
 import AddHouse from "./components/AddHouse";
 import DeleteHouse from "./components/Delete";
 import MainLayout from "./routes/MainLayout";
+import MyReservations from "./routes/MyReservations";
+
 export default function App() {
 
   const router = createBrowserRouter(
@@ -30,6 +32,7 @@ export default function App() {
           <Route path="/houses/:houseId" element={<HouseDetails />} />
           <Route path="/delete" element={<DeleteHouse />} />
           <Route path="/reserve" element={<Reservation />} />
+          <Route path="/reservations" element={<MyReservations />} />
         </Route>
         <Route path="/login" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />

@@ -32,7 +32,6 @@ const deleteSlice = createSlice({
           .addCase(deleteHouseThunk.fulfilled, (state, action) => {
             state.status = 'succeeded'
             state.data = action.payload;
-            console.log(state.status);
           })
           .addCase(deleteHouseThunk.rejected, (state, action) => {
             state.status = 'failed';

@@ -26,16 +26,13 @@ function SignupForm() {
         // withCredentials: true
       })
       .then(() => {
-        console.log("success");
         toast.success(
           "You signed up successfully, please login with the same credentials to connect t your account"
         );
         reset();
         navigate("/login");
       })
-      .catch((err) => {
-        console.log("error");
-        console.log(err);
+      .catch(() => {
         toast.error(
           "An error occured while creating the account, please try again"
         );

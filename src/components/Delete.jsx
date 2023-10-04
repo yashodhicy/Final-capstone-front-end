@@ -17,10 +17,9 @@ const DeleteHouse = () => {
   const navigate = useNavigate();
 
   const handleDelete = async (houseId) => {
-    await dispatch(deleteHouseThunk(houseId)).then((action) => {
+    await dispatch(deleteHouseThunk(houseId)).then(() => {
       dispatch(userHouses());
       navigate("/delete");
-      console.log("deleteHouseThunk action:", action);
     });
   };
 
