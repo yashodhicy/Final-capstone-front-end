@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getReservations, reserve } from "./middlewares";
-import { toast } from "react-toastify";
+import { getReservations } from "./middlewares";
 const initialState = {
   error: null,
   isPending: true,
@@ -33,29 +32,6 @@ const reservationSlice = createSlice({
           error: payload,
         };
       })
-      .addCase(reserve.pending, (state) => {
-          return {
-              ...state,
-          isPending: true,
-          error: null,
-        };
-      })
-      .addCase(reserve.fulfilled, (state, { payload }) => {
-          toast.success("Reservation successful")
-          return {
-              reservations: payload,
-          isPending: false,
-          error: null,
-        };
-    })
-    .addCase(reserve.rejected, (state, { payload }) => {
-          toast.error("An error occured while reserving the house")
-        return {
-          ...state,
-          isPending: false,
-          error: payload,
-        };
-      });
   },
 });
 

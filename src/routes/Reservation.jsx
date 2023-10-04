@@ -2,28 +2,30 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../components/Modal";
 import ReactDatePicker from "react-datepicker";
-import { Country, State, City } from "country-state-city";
+import { City } from "country-state-city";
 import { Button, Form } from "react-bootstrap";
 import TextTruncate from "react-text-truncate";
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
-import { reserve } from "../Redux/reservation/middlewares";
+import { useSelector } from "react-redux";
 import dateDifference from "../components/utils/dateDifference";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { reserve } from "./features/reservation";
+import { Link } from "react-router-dom";
 
 const Reservation = () => {
-  const dispatch = useDispatch();
-  const houses = useSelector(state => state.Houses).houses
-  const location = useLocation()
-  const params = new URLSearchParams(window.location.search)
-  const [selectedHouse, setSelectedHouse] = useState(houses.find(house => house.id == params.get("id")));
+  const houses = useSelector((state) => state.Houses).houses;
+  const params = new URLSearchParams(window.location.search);
+  const [selectedHouse, setSelectedHouse] = useState(
+    houses.find((house) => house.id == params.get("id"))
+  );
   const selectHouse = (house) => setSelectedHouse(house);
   const [startDate, setStartDate] = useState(new Date());
   const [bookDate, setBookDate] = useState(startDate);
   const [checkoutDay, setSheckoutDay] = useState(startDate);
   const [city, setCity] = useState("");
 
-  useEffect(() => {setSelectedHouse(houses.find(house => house.id == params.get("id")))}, [houses])
+  useEffect(() => {
+    setSelectedHouse(houses.find((house) => house.id == params.get("id")));
+  }, [houses]);
 
   const validate = () => {
     for (let el of [selectedHouse, bookDate, checkoutDay, city]) {
@@ -31,17 +33,40 @@ const Reservation = () => {
     }
     return true;
   };
-  const submitReservation = (e) => {
+
+  const reset = () => {
+    setSelectedHouse(null)
+    setBookDate(startDate)
+    setSheckoutDay(startDate)
+    setCity(null)
+  }
+
+  const submitReservation = async (e) => {
     e.preventDefault();
     if (!validate()) return toast.error("Please fill all the required fields");
-    if(dateDifference(bookDate, checkoutDay) == 0) return toast.error("The booking and checkout dates are meant to be different!");
+    if (dateDifference(bookDate, checkoutDay) <= 0)
+      return toast.error(
+        "The checkout date is suppose to be greater than the booking date!"
+      );
     const data = {
       bookingDate: new Date(bookDate).toISOString(),
       checkoutDate: new Date(checkoutDay).toISOString(),
       house: selectedHouse,
     };
-
-    dispatch(reserve(data));
+    try {
+      const { data: reservations } = await reserve(data);
+      if (reservations) {
+        toast.success(
+          <p>
+            Reservation successful! You can see your reservations{" "}
+            <a href="/reservations">here</a>
+          </p>
+        );
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occured while trying to reserve the house, please try again!")
+    }
   };
   return (
     <article
@@ -78,7 +103,13 @@ const Reservation = () => {
               Select the house
             </label>
             <div className="d-flex w-50 gap-1">
-              <Modal selectedHouse={houses.find(house => house.id == params.get("id"))} selectHouse={selectHouse} show={true} />
+              <Modal
+                selectedHouse={houses.find(
+                  (house) => house.id == params.get("id")
+                )}
+                selectHouse={selectHouse}
+                show={true}
+              />
               <TextTruncate
                 line={1}
                 element="span"
