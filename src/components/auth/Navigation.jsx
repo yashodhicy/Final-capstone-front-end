@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "../componentsCss/auth.module.css";
+import style from "../../routes/styles/auth.module.css"
 
 const Navigation = ({ login }) => {
   return (
@@ -12,11 +12,11 @@ const Navigation = ({ login }) => {
       }
     >
       <h5>Logo</h5>
-      <Button variant="primary">
+      <button className={`${style["sign-btn"]}`}>
         <Link to={login ? "/login" : "/signup"} className="text-white">
           {login ? "Login" : "Sign up"}
         </Link>
-      </Button>
+      </button>
     </div>
   );
 };

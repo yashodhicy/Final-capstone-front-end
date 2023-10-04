@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const setNavigationBackground = (matchPath) => {
     if (path.pathname === matchPath)
-      return { backgroundColor: "yellowgreen", color: "white" };
+      return { backgroundColor: "var(--green)", color: "white" };
     return {};
   };
   const navigationClass = (matchPath) => {
@@ -42,22 +42,22 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="mobile bars">
+      <div className="mobile-nav">
         <span
           role="button"
-          onClick={() => settray(false)}
-          onKeyDown={() => settray(false)}
+          onClick={() => settray(!tray)}
+          onKeyDown={() => settray(!tray)}
           tabIndex={0}
         >
-          <i className="fa-solid fa-bars" />
+          <i className="fa fa-solid fa-bars fa-lg p-2" />
         </span>
       </div>
       <div
         id="navbar"
         className={tray ? "block" : "show"}
         role="button"
-        onClick={() => settray(true)}
-        onKeyDown={() => settray(false)}
+        onClick={() => settray(!tray)}
+        onKeyDown={() => settray(!tray)}
         tabIndex={0}
       >
         <div className="top">
@@ -96,27 +96,27 @@ const Navbar = () => {
         <div className="socials">
           <ul>
             <li>
-              <i className="fa-brands fa-twitter" />
+              <i className="fa fa-brands fa-twitter" />
             </li>
             <li>
-              <i className="fa-brands fa-facebook-f" />
+              <i className="fa fa-brands fa-facebook-f" />
             </li>
             <li>
-              <i className="fa-brands fa-pinterest-p" />
+              <i className="fa fa-brands fa-pinterest-p" />
             </li>
             <li>
-              <i className="fa-brands fa-google-plus-g" />
+              <i className="fa fa-brands fa-google-plus-g" />
             </li>
           </ul>
         </div>
         <div
           className="mobile cancel"
           role="button"
-          onClick={() => settray(true)}
-          onKeyDown={() => settray(true)}
+          onClick={() => settray(!tray)}
+          onKeyDown={() => settray(!tray)}
           tabIndex={0}
         >
-          <i className="fa-solid fa-xmark" />
+          <i className="fa fa-solid fa-xmark" />
         </div>
       </div>
     </>

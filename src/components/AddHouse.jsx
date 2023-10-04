@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AddnewHouse } from "../Redux/HouseSlice";
 import isImgUrl from "./utils/imageUrlCheck";
 import { toast } from "react-toastify";
+import "../components/componentsCss/addhouse.css"
 
 const AddHouse = () => {
   const dispatch = useDispatch();
@@ -89,16 +90,16 @@ const AddHouse = () => {
   };
 
   return (
-    <section className="container w-100 d-flex justify-content-center align-items-center">
-      <div className="row">
-        <div className="col-md-10 w-100">
+    <div className='res-container'>
+    <section className="container w-100 h-100 d-flex justify-content-center align-items-center">
+      <div>
+        <div className="col-md-10 w-100 ">
           {success && <div className="alert alert-success">{success}</div>}
           {error && <div className="alert alert-danger">{error}</div>}
-          <h1 className="text-primary">Add New House</h1>
-          <form onSubmit={handleSubmit} className="w-100">
+          <h1 className="title">Add New House</h1>
+          <form onSubmit={handleSubmit} className="w-100 mt-5 d-flex add-form">
             <div className="mb-3">
-              <label htmlFor="houseName" className="form-label text-primary">
-                House Name
+              <label htmlFor="houseName" className="form-label">
                 <input
                   type="text"
                   name="name"
@@ -111,8 +112,7 @@ const AddHouse = () => {
               </label>
             </div>
             <div className="mb-3">
-              <label htmlFor="houseArea" className="form-label text-primary">
-                House Area
+              <label htmlFor="houseArea" className="form-label">
                 <input
                   type="number"
                   name="area"
@@ -126,8 +126,7 @@ const AddHouse = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="housePrice" className="form-label text-primary">
-                House Price
+              <label htmlFor="housePrice" className="form-label">
                 <input
                   type="number"
                   name="price"
@@ -140,11 +139,7 @@ const AddHouse = () => {
               </label>
             </div>
             <div className="mb-3">
-              <label
-                htmlFor="houseDescription"
-                className="form-label text-primary"
-              >
-                House Description
+              <label htmlFor="houseDescription" className="form-label">
                 <input
                   type="text"
                   name="description"
@@ -157,8 +152,7 @@ const AddHouse = () => {
               </label>
             </div>
             <div className="mb-3">
-              <label htmlFor="houseRooms" className="form-label text-primary">
-                Number of Rooms
+              <label htmlFor="houseRooms" className="form-label">
                 <input
                   type="number"
                   name="number_of_rooms"
@@ -172,11 +166,7 @@ const AddHouse = () => {
             </div>
 
             <div className="mb-3">
-              <label
-                htmlFor="houseLocation"
-                className="form-label text-primary"
-              >
-                Location of House
+              <label htmlFor="houseLocation" className="form-label">
                 <input
                   type="text"
                   name="location"
@@ -190,8 +180,7 @@ const AddHouse = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="houseImage" className="form-label text-primary">
-                House Image
+              <label htmlFor="houseImage" className="form-label">
                 <input
                   onBlur={(e) => {
                     if(!navigator.onLine && e.target.value.startsWith("http")) {
@@ -217,16 +206,13 @@ const AddHouse = () => {
             </div>
 
             <div className="mb-3">
-              <input
-                type="submit"
-                className="btn btn-primary"
-                value="Add House"
-              />
+              <input type="submit" className="add-house" value="Add House" />
             </div>
           </form>
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

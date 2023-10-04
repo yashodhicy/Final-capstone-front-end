@@ -3,6 +3,10 @@
   margin: 8rem 2rem 0;
 }
 
+.house-det {
+  color: rgb(14, 14, 14);
+}
+
 .details,
 .row {
   height: 100%;
@@ -13,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .house-image {
@@ -36,8 +41,11 @@
   align-items: center;
 }
 
-.prev {
+.prevr {
+  height: 3rem;
+  width: 3rem;
   border-radius: 0 3rem 3rem 0;
+  position: relative;
 }
 
 @media (max-width: 1000px) {
@@ -51,8 +59,11 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0 24px 30px, rgba(0, 0, 0, 0.22) 0 24px 12px;
   }
 
+  .info {
+    align-items: center;
+  }
+
   .prev {
-    display: flex;
     position: absolute;
     bottom: 1rem;
   }
