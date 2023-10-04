@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test House Component it renders correctly 1`] = `
+<section
+  className="houses"
+>
+  <div
+    className="header"
+  >
+    <h2>
+      Need a House to rent ?
+    </h2>
+    <p>
+      checkout our available Houses
+    </p>
+  </div>
+  <div
+    className="all"
+  />
+  <div
+    className="btn"
+  >
+    <button
+      className="prev"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="fa-solid fa-caret-left"
+      />
+    </button>
+    <button
+      className="next"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="fa-solid fa-caret-right"
+      />
+    </button>
+  </div>
+</section>
+`;

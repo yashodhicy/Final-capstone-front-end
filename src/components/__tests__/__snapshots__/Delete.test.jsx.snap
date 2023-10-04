@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Delete Component it renders correctly 1`] = `
+<div>
+  <section
+    className="houses"
+  >
+    <div
+      className="header"
+    >
+      <h2>
+        Need a House to Delete ?
+      </h2>
+      <p>
+        checkout our available Houses
+      </p>
+    </div>
+    <p>
+      You have no houses yet. Add a new house.
+    </p>
+  </section>
+</div>
+`;
