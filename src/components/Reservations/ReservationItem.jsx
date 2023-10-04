@@ -31,7 +31,7 @@ const ReservationItem = ({ reservation }) => {
         </p>
       </div>
       <div className="d-flex flex-column align-items-center">
-        <h4 className="text-dark mb-4">Total sharge: ${reservation.total_charge}</h4>
+        <h4 className="text-dark mb-4">Total charge: ${reservation.total_charge}</h4>
         {reservation.house ? (
           <div
             className="rounded-3"
