@@ -27,7 +27,7 @@ exports[`Test House Component it renders correctly 1`] = `
       type="button"
     >
       <i
-        className="fa-solid fa-caret-left"
+        className="fa fa-caret-left"
       />
     </button>
     <button
@@ -37,7 +37,7 @@ exports[`Test House Component it renders correctly 1`] = `
       type="button"
     >
       <i
-        className="fa-solid fa-caret-right"
+        className="fa fa-caret-right"
       />
     </button>
   </div>
