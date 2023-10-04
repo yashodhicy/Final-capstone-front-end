@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const FormField = ({ name, value, onChange, type, placeholder }) => {
   return (
@@ -16,6 +16,14 @@ const FormField = ({ name, value, onChange, type, placeholder }) => {
       </label>
     </div>
   );
+};
+
+FormField.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
 
 export default FormField;
