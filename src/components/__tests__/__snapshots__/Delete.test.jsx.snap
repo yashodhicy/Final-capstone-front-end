@@ -9,10 +9,10 @@ exports[`Test Delete Component it renders correctly 1`] = `
       className="header"
     >
       <h2>
-        Need a House to Delete ?
+        Need to delete your house?
       </h2>
       <p>
-        checkout our available Houses
+        After deleting others can not reserve your house
       </p>
     </div>
     <p>
