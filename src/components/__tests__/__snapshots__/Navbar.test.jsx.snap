@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Navbar Component it renders correctly 1`] = `
+[
+  <div
+    className="mobile bars"
+  >
+    <span
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <i
+        className="fa-solid fa-bars"
+      />
+    </span>
+  </div>,
+  <div
+    className="block"
+    id="navbar"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <div
+      className="top"
+    >
+      <h2>
+        HOUSE RENT
+      </h2>
+      <ul>
+        <li
+          style={
+            {
+              "backgroundColor": "yellowgreen",
+              "color": "white",
+            }
+          }
+        >
+          <a
+            className="text-white"
+            href="/"
+            onClick={[Function]}
+          >
+            House
+          </a>
+        </li>
+        <li
+          style={{}}
+        >
+          <a
+            className=""
+            href="/reserve"
+            onClick={[Function]}
+          >
+            Reserve
+          </a>
+        </li>
+        <li
+          style={{}}
+        >
+          <a
+            className=""
+            href="/myreserve"
+            onClick={[Function]}
+          >
+            My Reservations
+          </a>
+        </li>
+        <li
+          style={{}}
+        >
+          <a
+            className=""
+            href="/add"
+            onClick={[Function]}
+          >
+            Add House
+          </a>
+        </li>
+        <li>
+          <a
+            href="/delete"
+            onClick={[Function]}
+          >
+            Delete House
+          </a>
+        </li>
+        <div>
+          <button
+            className="btn btn-danger"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            sign out
+          </button>
+        </div>
+      </ul>
+    </div>
+    <div
+      className="socials"
+    >
+      <ul>
+        <li>
+          <i
+            className="fa-brands fa-twitter"
+          />
+        </li>
+        <li>
+          <i
+            className="fa-brands fa-facebook-f"
+          />
+        </li>
+        <li>
+          <i
+            className="fa-brands fa-pinterest-p"
+          />
+        </li>
+        <li>
+          <i
+            className="fa-brands fa-google-plus-g"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      className="mobile cancel"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <i
+        className="fa-solid fa-xmark"
+      />
+    </div>
+  </div>,
+]
+`;
