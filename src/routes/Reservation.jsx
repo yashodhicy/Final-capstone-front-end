@@ -36,10 +36,10 @@ const Reservation = () => {
   };
 
   const reset = () => {
-    setSelectedHouse(null);
+    selectHouse(houses.find((house) => house.id == params.get("id")));
     setBookDate(startDate);
     setSheckoutDay(startDate);
-    setCity(null);
+    setCity(undefined);
   };
 
   const submitReservation = async (e) => {
@@ -63,12 +63,14 @@ const Reservation = () => {
             <a href="/reservations">here</a>
           </p>
         );
+        reset()
       }
     } catch (error) {
       console.log(error);
       toast.error(
         "An error occured while trying to reserve the house, please try again!"
       );
+      reset()
     }
   };
   return (
