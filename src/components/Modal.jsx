@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Button, ListGroup } from "react-bootstrap";
-// import Button from 'react-bootstrap/Button';
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 import HouseModalItem from "./HouseModalItem";
-// import { Form } from "react-router-dom";
 
 function Example({selectHouse}) {
   const [show, setShow] = useState(false);
@@ -18,9 +16,9 @@ function Example({selectHouse}) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <button className= 'reserve-button' onClick={handleShow}>
         Select
-      </Button>
+      </button>
 
       <Modal
         scrollable

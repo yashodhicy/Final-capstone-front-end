@@ -14,7 +14,6 @@ import Signin from "./routes/auth/Signin";
 import AddHouse from "./components/AddHouse";
 import DeleteHouse from "./components/Delete";
 import MainLayout from "./routes/MainLayout";
-
 export default function App() {
 
   const router = createBrowserRouter(

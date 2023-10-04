@@ -1,10 +1,10 @@
 import axios from "axios";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { save } from "../../utils/localstorage";
+import styles from "../../../routes/styles/auth.module.css"
 
 function SigninForm() {
   const { register, handleSubmit, reset } = useForm();
@@ -74,9 +74,11 @@ function SigninForm() {
           placeholder="Password"
         />
       </Form.Group>
-      <Button className="" variant="primary" type="submit">
+      <button className={`${styles["sign-btn"]}`} type="submit">
+        <i className="fa fa-home fa-2x " aria-hidden="true"></i>
         Sign in
-      </Button>
+        <i className="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>  
+      </button>
     </Form>
   );
 }

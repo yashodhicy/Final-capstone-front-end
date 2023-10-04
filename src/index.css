@@ -41,7 +41,6 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -60,7 +59,7 @@ button:focus-visible {
     background-color: #fff;
 
     --darkgreen: #799b08;
-    --green: #8bb406;
+    --green: #97bf0f;
   }
 
   a:hover {
@@ -74,5 +73,9 @@ button:focus-visible {
 
   button:hover {
     background-color: var(--darkgreen);
+  }
+
+  li {
+    list-style: none;
   }
 }

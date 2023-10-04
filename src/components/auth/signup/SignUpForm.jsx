@@ -1,9 +1,9 @@
 import axios from "axios";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import styles from "../../../routes/styles/auth.module.css"
 
 function SignupForm() {
   const {
@@ -86,9 +86,9 @@ function SignupForm() {
           placeholder="Confirm your password"
         />
       </Form.Group>
-      <Button className="" variant="primary" type="submit">
+      <button className={`${styles["sign-btn"]}`} type="submit">
         Sign up
-      </Button>
+      </button>
     </Form>
   );
 }

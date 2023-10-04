@@ -1,7 +1,4 @@
 .page {
-  /* background: url('https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg'), yellowgreen; */
-
-  /* background: url('https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg'), rgb(153, 205, 50); */
   background: linear-gradient(rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%), url("https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,4 +6,11 @@
 
 .form-container {
   height: calc(100vh - 50px);
+}
+
+.sign-btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 2rem;
 }
