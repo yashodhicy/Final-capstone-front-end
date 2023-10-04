@@ -1,335 +1,161 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddHouse Component it renders correctly 1`] = `
-<section
-  className="container w-100 d-flex justify-content-center align-items-center"
->
-  <div
-    className="row"
-  >
-    <div
-      className="col-md-10 w-100"
-    >
-      <h1
-        className="text-primary"
-      >
-        Add New House
-      </h1>
-      <form
-        className="w-100"
-        onSubmit={[Function]}
-      >
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseName"
-          >
-            House Name
-            <input
-              className="form-control"
-              id="houseName"
-              name="name"
-              onChange={[Function]}
-              placeholder="Enter House Name"
-              type="text"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseArea"
-          >
-            House Area
-            <input
-              className="form-control"
-              id="houseArea"
-              name="area"
-              onChange={[Function]}
-              placeholder="Enter House area"
-              type="number"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="housePrice"
-          >
-            House Price
-            <input
-              className="form-control"
-              id="housePrice"
-              name="price"
-              onChange={[Function]}
-              placeholder="Enter House Price"
-              type="number"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseDescription"
-          >
-            House Description
-            <input
-              className="form-control"
-              id="houseDescription"
-              name="description"
-              onChange={[Function]}
-              placeholder="Enter House Description"
-              type="text"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseRooms"
-          >
-            Number of Rooms
-            <input
-              className="form-control"
-              id="houseRooms"
-              name="number_of_rooms"
-              onChange={[Function]}
-              placeholder="Enter Number of Rooms"
-              type="number"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseLocation"
-          >
-            Location of House
-            <input
-              className="form-control"
-              id="houseLocation"
-              name="location"
-              onChange={[Function]}
-              placeholder="Enter the location of the house"
-              type="text"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseImage"
-          >
-            House Image
-            <input
-              className="form-control"
-              id="houseImage"
-              name="image"
-              onChange={[Function]}
-              placeholder="Enter the URL of house"
-              type="text"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <input
-            className="btn btn-primary"
-            type="submit"
-            value="Add House"
-          />
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-`;
-
 exports[`Test AddHouse Component it renders correctly 1`] = `
-<section
-  className="container w-100 d-flex justify-content-center align-items-center"
+<div
+  className="res-container"
 >
-  <div
-    className="row"
+  <section
+    className="container w-100 h-100 d-flex justify-content-center align-items-center"
   >
-    <div
-      className="col-md-10 w-100"
-    >
-      <h1
-        className="text-primary"
+    <div>
+      <div
+        className="col-md-10 w-100 "
       >
-        Add New House
-      </h1>
-      <form
-        className="w-100"
-        onSubmit={[Function]}
-      >
-        <div
-          className="mb-3"
+        <h1
+          className="title"
         >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseName"
+          Add New House
+        </h1>
+        <form
+          className="w-100 mt-5 d-flex add-form"
+          onSubmit={[Function]}
+        >
+          <div
+            className="mb-3"
           >
-            House Name
-            <input
-              className="form-control"
-              id="houseName"
-              name="name"
-              onChange={[Function]}
-              placeholder="Enter House Name"
-              type="text"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseArea"
+            <label
+              className="form-label"
+              htmlFor="housename"
+            >
+              <input
+                className="form-control"
+                id="housename"
+                name="name"
+                onChange={[Function]}
+                placeholder="Enter House Name"
+                type="text"
+                value=""
+              />
+            </label>
+          </div>
+          <div
+            className="mb-3"
           >
-            House Area
-            <input
-              className="form-control"
-              id="houseArea"
-              name="area"
-              onChange={[Function]}
-              placeholder="Enter House area"
-              type="number"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="housePrice"
+            <label
+              className="form-label"
+              htmlFor="housearea"
+            >
+              <input
+                className="form-control"
+                id="housearea"
+                name="area"
+                onChange={[Function]}
+                placeholder="Enter House area"
+                type="number"
+                value=""
+              />
+            </label>
+          </div>
+          <div
+            className="mb-3"
           >
-            House Price
-            <input
-              className="form-control"
-              id="housePrice"
-              name="price"
-              onChange={[Function]}
-              placeholder="Enter House Price"
-              type="number"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseDescription"
+            <label
+              className="form-label"
+              htmlFor="houseprice"
+            >
+              <input
+                className="form-control"
+                id="houseprice"
+                name="price"
+                onChange={[Function]}
+                placeholder="Enter House Price"
+                type="number"
+                value=""
+              />
+            </label>
+          </div>
+          <div
+            className="mb-3"
           >
-            House Description
-            <input
-              className="form-control"
-              id="houseDescription"
-              name="description"
-              onChange={[Function]}
-              placeholder="Enter House Description"
-              type="text"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseRooms"
+            <label
+              className="form-label"
+              htmlFor="housedescription"
+            >
+              <input
+                className="form-control"
+                id="housedescription"
+                name="description"
+                onChange={[Function]}
+                placeholder="Enter House Description"
+                type="text"
+                value=""
+              />
+            </label>
+          </div>
+          <div
+            className="mb-3"
           >
-            Number of Rooms
-            <input
-              className="form-control"
-              id="houseRooms"
-              name="number_of_rooms"
-              onChange={[Function]}
-              placeholder="Enter Number of Rooms"
-              type="number"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseLocation"
+            <label
+              className="form-label"
+              htmlFor="housenumber_of_rooms"
+            >
+              <input
+                className="form-control"
+                id="housenumber_of_rooms"
+                name="number_of_rooms"
+                onChange={[Function]}
+                placeholder="Enter Number of Rooms"
+                type="number"
+                value=""
+              />
+            </label>
+          </div>
+          <div
+            className="mb-3"
           >
-            Location of House
-            <input
-              className="form-control"
-              id="houseLocation"
-              name="location"
-              onChange={[Function]}
-              placeholder="Enter the location of the house"
-              type="text"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <label
-            className="form-label text-primary"
-            htmlFor="houseImage"
+            <label
+              className="form-label"
+              htmlFor="houselocation"
+            >
+              <input
+                className="form-control"
+                id="houselocation"
+                name="location"
+                onChange={[Function]}
+                placeholder="Enter the location of the house"
+                type="text"
+                value=""
+              />
+            </label>
+          </div>
+          <div
+            className="mb-3"
           >
-            House Image
-            <input
-              className="form-control"
-              id="houseImage"
-              name="image"
-              onChange={[Function]}
-              placeholder="Enter the URL of house"
-              type="text"
-              value=""
-            />
-          </label>
-        </div>
-        <div
-          className="mb-3"
-        >
-          <input
+            <label
+              className="form-label"
+              htmlFor="houseImage"
+            >
+              <input
+                className="form-control"
+                id="houseImage"
+                name="image"
+                onBlur={[Function]}
+                onChange={[Function]}
+                placeholder="Enter the URL of house"
+                type="text"
+                value=""
+              />
+            </label>
+          </div>
+          <button
             className="btn btn-primary"
             type="submit"
-            value="Add House"
-          />
-        </div>
-      </form>
+          >
+            Add House
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 `;
