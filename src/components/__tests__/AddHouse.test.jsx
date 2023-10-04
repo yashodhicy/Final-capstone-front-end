@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import store from '../../Redux/store';
 import AddHouse from '../AddHouse';
 
-describe('AddHouse Component', () => {
+describe('Test AddHouse Component', () => {
     test ('it renders correctly', () => {
         const tree = renderer
         .create(
