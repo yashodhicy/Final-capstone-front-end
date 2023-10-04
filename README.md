@@ -32,10 +32,11 @@
 
 > This is a react app which will serve as the front end app for our RentHub back end app.This app can use to reserve houses and view houses.Also a user can add his own house and rent.
 
+## [Link to the Site](https://final-capstone-n7jz.onrender.com)
 
-# Demo Link
+## [Link to the back-end repo](https://github.com/yashodhicy/Final-capstone-back-end)
 
-<https://final-capstone-n7jz.onrender.com/>
+## [Link to the kanbarn board](https://github.com/users/yashodhicy/projects/6)
 
 ![HomePage](./assets/image-1.png)
 ![HouseDetails](./assets/image-2.png)
