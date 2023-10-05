@@ -13,3 +13,13 @@ export const getReservations = createAsyncThunk(
     return response.data;
   }
 );
+
+export const deleteReservations = createAsyncThunk('reservation/delete', async (houseId,reservationId) => {
+  const response = await axios.delete(`${baseUrl}/houses/${houseId}/reservations/${reservationId}${sessionParamsGenerator()}`);
+
+  if (response.status !== 200) {
+    throw new Error('Delete request failed');
+  }
+
+  return response.data;
+});

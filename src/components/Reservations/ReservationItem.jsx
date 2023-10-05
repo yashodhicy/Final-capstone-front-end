@@ -1,5 +1,18 @@
 /* eslint-disable react/prop-types */
+import { Button } from 'react-bootstrap';
+import { deleteReservations } from "../../Redux/reservation/middlewares.js";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 const ReservationItem = ({ reservation }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleReserveDelete = async (houseId,reservationId) => {
+    await dispatch(deleteReservations(houseId,reservationId)).then(() => {
+      navigate("/reservations");
+    });
+  };
   return reservation ? (
     <li className="my-2 shadow border p-3 rounded d-flex flex-column flex-md-row w-100 justify-content-md-between align-items-center align-items-md-start">
       <div>
@@ -29,6 +42,10 @@ const ReservationItem = ({ reservation }) => {
           <span className=" fw-bold">City: </span>{" "}
           {reservation.house ? reservation.house.location : "...loading"}
         </p>
+
+        <div>
+            <Button type ="button" variant='danger' onClick={ () => handleReserveDelete(reservation.house_id,reservation.id) }>Delete</Button>
+        </div>
       </div>
       <div className="d-flex flex-column align-items-center">
         <h4 className="text-dark mb-4">Total charge: ${reservation.total_charge}</h4>
