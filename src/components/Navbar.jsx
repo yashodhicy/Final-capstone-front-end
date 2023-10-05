@@ -66,7 +66,7 @@ const Navbar = () => {
               height={100}
               width={100}
               src="https://res.cloudinary.com/ddayqmsfs/image/upload/v1696517423/home-06_qmfwdu.jpg"
-              alt="nothing"
+              alt="logo"
             />
             <h4 className="fw-bold mt-0" style={{ color: "#97bf0f", }}>
               RENTHUB
