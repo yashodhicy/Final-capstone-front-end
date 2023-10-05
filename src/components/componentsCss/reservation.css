@@ -48,6 +48,6 @@ input {
 }
 
 .reserve-button:disabled {
- background-color: var(--green);
- color: white ;
+  background-color: var(--green);
+  color: white;
 }
