@@ -87,7 +87,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Running The App Locally
 
-- Run `npm install`
+- Install `npm install`
+- Run `npm run dev`
 
 ## Authors
 
