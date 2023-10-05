@@ -46,3 +46,8 @@ input {
 .select {
   flex-direction: column;
 }
+
+.reserve-button:disabled {
+ background-color: var(--green);
+ color: white ;
+}
