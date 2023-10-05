@@ -46,7 +46,7 @@ const ReservationItem = ({ reservation }) => {
         </p>
         {reservation.house ? (
         <div>
-            <Button type ="button" variant='danger' onClick={ () => handleReserveDelete(reservation.house_id, reservation.id) }>Delete</Button>
+            <Button type ="button" variant='danger' onClick={ () => handleReserveDelete(reservation.house_id, reservation.id) }>cancel</Button>
         </div>
         ):""}
       </div>
