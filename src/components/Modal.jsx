@@ -48,7 +48,6 @@ function Example({ selectHouse, selectedHouse }) {
             Cancel
           </button>
           <button
-            variant="primary"
             onClick={() => {
               selectHouse(selected);
               handleClose();
