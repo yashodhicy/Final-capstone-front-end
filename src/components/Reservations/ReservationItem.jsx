@@ -1,5 +1,18 @@
 /* eslint-disable react/prop-types */
+import { Button } from 'react-bootstrap';
+import { deleteReservations, getReservations } from "../../Redux/reservation/middlewares.js";
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+
 const ReservationItem = ({ reservation }) => {
+  const dispatch = useDispatch();
+
+  const handleReserveDelete = async (houseId, reservationId) => {
+    await dispatch(deleteReservations({houseId, reservationId})).then(() => {
+      toast.success("canceled reservation");
+      dispatch(getReservations());
+    });
+  };
   return reservation ? (
     <li className="my-2 shadow border p-3 rounded d-flex flex-column flex-md-row w-100 justify-content-md-between align-items-center align-items-md-start">
       <div>
@@ -29,6 +42,11 @@ const ReservationItem = ({ reservation }) => {
           <span className=" fw-bold">City: </span>{" "}
           {reservation.house ? reservation.house.location : "...loading"}
         </p>
+        {reservation.house ? (
+        <div>
+            <Button type ="button" variant='danger' onClick={ () => handleReserveDelete(reservation.house_id, reservation.id) }>cancel</Button>
+        </div>
+        ):""}
       </div>
       <div className="d-flex flex-column align-items-center">
         <h4 className="text-dark mb-4">Total charge: ${reservation.total_charge}</h4>

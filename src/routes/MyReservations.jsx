@@ -14,7 +14,9 @@ const MyReservations = () => {
       <h1 className="text-center text-secondary mb-5">My reservations</h1>
       <ul className="p-0 w-100" style={{ maxWidth: 1500 }}>
         {reservations.reservations.map((reservation, index) => (
+          <>
           <ReservationItem key={index} reservation={reservation} />
+          </>
         ))}
       </ul>
     </article>
