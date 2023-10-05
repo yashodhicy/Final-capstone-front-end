@@ -19,7 +19,7 @@
   text-decoration: none;
 }
 
-form {
+.form-sign {
   display: flex;
   flex-direction: column;
   align-items: center;

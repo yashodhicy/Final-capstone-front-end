@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styles from "../../../routes/styles/auth.module.css"
-
 function SignupForm() {
   const {
     register,
@@ -43,7 +42,7 @@ function SignupForm() {
   return (
     <Form
       onSubmit={handleSubmit(onSubmit)}
-      className="text-center"
+      className={`text-center ${styles["form-sign"]}`}
       style={{ width: "100%", maxWidth: 400 }}
     >
       <Form.Group className="mb-3 text-start" controlId="formBasicEmail">

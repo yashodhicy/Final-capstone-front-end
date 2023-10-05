@@ -50,7 +50,7 @@ function SigninForm() {
   return (
     <Form
       onSubmit={handleSubmit(onSubmit)}
-      className="text-center"
+      className={`text-center ${styles["form-sign"]}`}
     >
       <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
