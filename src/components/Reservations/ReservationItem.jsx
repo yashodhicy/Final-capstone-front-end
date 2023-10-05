@@ -2,12 +2,10 @@
 import { Button } from 'react-bootstrap';
 import { deleteReservations, getReservations } from "../../Redux/reservation/middlewares.js";
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const ReservationItem = ({ reservation }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleReserveDelete = async (houseId, reservationId) => {
     await dispatch(deleteReservations({houseId, reservationId})).then(() => {
