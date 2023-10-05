@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Button, ListGroup } from "react-bootstrap";
+import {ListGroup } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 import HouseModalItem from "./HouseModalItem";
@@ -16,9 +16,9 @@ function Example({ selectHouse, selectedHouse }) {
 
   return (
     <>
-      <Button className= 'reserve-button' disabled={!!selectedHouse} variant="primary" onClick={handleShow}>
+      <button className= 'reserve-button' disabled={!!selectedHouse} onClick={handleShow}>
         {selectedHouse ? "selected" : "select"}
-      </Button>
+      </button>
 
       <Modal
         scrollable
@@ -44,10 +44,10 @@ function Example({ selectHouse, selectedHouse }) {
           </ListGroup>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <button onClick={handleClose}>
             Cancel
-          </Button>
-          <Button
+          </button>
+          <button
             variant="primary"
             onClick={() => {
               selectHouse(selected);
@@ -55,7 +55,7 @@ function Example({ selectHouse, selectedHouse }) {
             }}
           >
             Continue
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </>

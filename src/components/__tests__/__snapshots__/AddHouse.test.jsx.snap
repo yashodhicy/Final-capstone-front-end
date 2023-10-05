@@ -148,7 +148,7 @@ exports[`Test AddHouse Component it renders correctly 1`] = `
             </label>
           </div>
           <button
-            className="btn btn-primary"
+            className="add-house"
             type="submit"
           >
             Add House

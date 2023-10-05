@@ -174,7 +174,7 @@ const AddHouse = () => {
                 />
               </label>
             </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="add-house">
                 Add House
               </button>
             </form>

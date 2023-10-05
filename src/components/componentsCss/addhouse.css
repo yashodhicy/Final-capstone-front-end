@@ -8,10 +8,12 @@
 .add-house {
   background-color: white;
   color: var(--green);
+  width: 10rem;
+  border-radius: 3rem;
 }
 
 .add-house:hover {
-  background-color: var(--darkgreen);
+  background-color: rgb(42, 144, 8);
   color: white;
 }
 

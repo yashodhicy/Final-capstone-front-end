@@ -51,7 +51,6 @@ function SigninForm() {
     <Form
       onSubmit={handleSubmit(onSubmit)}
       className="text-center"
-      style={{ width: "100%", maxWidth: 400 }}
     >
       <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>

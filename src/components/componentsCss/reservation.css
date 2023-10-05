@@ -36,6 +36,7 @@
 
 .reserve-button:hover {
   color: white;
+  background-color: rgb(42, 144, 8);
 }
 
 input {
