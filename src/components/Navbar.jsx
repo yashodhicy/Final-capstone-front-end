@@ -61,7 +61,17 @@ const Navbar = () => {
         tabIndex={0}
       >
         <div className="top">
-          <h2>HOUSE RENT</h2>
+          <div className="text-center mb-5">
+            <img
+              height={100}
+              width={100}
+              src="https://res.cloudinary.com/ddayqmsfs/image/upload/v1696517423/home-06_qmfwdu.jpg"
+              alt="nothing"
+            />
+            <h4 className="fw-bold mt-0" style={{ color: "#97bf0f", }}>
+              RENTHUB
+            </h4>
+          </div>
           <ul>
             <li style={setNavigationBackground("/")}>
               <Link className={navigationClass("/")} to="/">
@@ -74,7 +84,10 @@ const Navbar = () => {
               </Link>
             </li>
             <li style={setNavigationBackground("/reservations")}>
-              <Link className={navigationClass("/reservations")} to="reservations">
+              <Link
+                className={navigationClass("/reservations")}
+                to="reservations"
+              >
                 My Reservations
               </Link>
             </li>
