@@ -36,23 +36,24 @@
 
 ## [Link to the back-end repo](https://github.com/yashodhicy/Final-capstone-back-end)
 
-## [Link to the kanbarn board](https://github.com/users/yashodhicy/projects/6)
-
-## Kanban board initial state
-![kanban board](https://github.com/yashodhicy/Final-capstone--back-end/assets/98597449/90ef8093-579a-4ee6-8b0e-f3c9416fc419)
-
 ![HomePage](./assets/image-1.png)
 ![HouseDetails](./assets/image-2.png)
 ![Reserve](./assets/image-3.png)
-<br>
-<br>
+<be>
 
-# Demo Account
-
-```json
+  ```json
 email: testuser@email.com
 password: p@ssw@rd
 ```
+  
+# Kanbon board 
+
+## Kanbon board link
+https://github.com/users/yashodhicy/projects/6/views/1
+
+![image](https://github.com/yashodhicy/Final-capstone-back-end/assets/116276432/bcb9ef1c-a30e-486a-9471-a20d151004e2)
+
+There are three members of our team who are passionate about what they do. We worked smart to complete this project and worked together to solve problems and conflicts.We always communicated and shared work amongst ourselves in order to give our best effort. That distinguishes us as professionals.
 
 ## The learning objective of this project are
 
