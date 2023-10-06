@@ -36,6 +36,9 @@
 
 ## [Link to the back-end repo](https://github.com/yashodhicy/Final-capstone-back-end)
 
+## Kanban board initial state
+![kanban board](https://github.com/yashodhicy/Final-capstone--back-end/assets/98597449/90ef8093-579a-4ee6-8b0e-f3c9416fc419)
+
 ## [Link to the kanbarn board](https://github.com/users/yashodhicy/projects/6)
 
 ![HomePage](./assets/image-1.png)
