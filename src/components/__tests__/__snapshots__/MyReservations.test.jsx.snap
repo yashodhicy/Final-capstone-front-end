@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test MyReseravation  Component it renders correctly 1`] = `
+<article
+  className="p-3 d-flex flex-column align-items-center w-100"
+>
+  <h1
+    className="text-center text-secondary mb-5"
+  >
+    My reservations
+  </h1>
+  <ul
+    className="p-0 w-100"
+    style={
+      {
+        "maxWidth": 1500,
+      }
+    }
+  />
+</article>
+`;
