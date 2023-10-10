@@ -27,9 +27,26 @@ exports[`Test Navbar Component it renders correctly 1`] = `
     <div
       className="top"
     >
-      <h2>
-        HOUSE RENT
-      </h2>
+      <div
+        className="text-center mb-5"
+      >
+        <img
+          alt="logo"
+          height={100}
+          src="https://res.cloudinary.com/ddayqmsfs/image/upload/v1696517423/home-06_qmfwdu.jpg"
+          width={100}
+        />
+        <h4
+          className="fw-bold mt-0"
+          style={
+            {
+              "color": "#97bf0f",
+            }
+          }
+        >
+          RENTHUB
+        </h4>
+      </div>
       <ul>
         <li
           style={
