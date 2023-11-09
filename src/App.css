@@ -5,7 +5,7 @@ body {
 
 #root {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   position: relative;
 }
@@ -13,4 +13,18 @@ body {
 #pages-content {
   width: 100%;
   overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  #root {
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  #pages-content {
+    display: flex;
+    margin-left: 23%;
+    width: 80%;
+  }
 }

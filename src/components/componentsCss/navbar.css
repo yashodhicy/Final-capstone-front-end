@@ -1,15 +1,15 @@
 #navbar {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
   backdrop-filter: blur(50px);
-  padding: 1rem 0;
-  padding-left: 1rem;
   transition: 0.5s;
   top: 0;
   z-index: 99;
+  margin: 0;
+  padding: 0;
 }
 
 .mobile-nav {
@@ -57,13 +57,10 @@
 
 .socials {
   position: relative;
-  top: 40px;
   width: 100%;
-  margin: auto;
 }
 
 .socials li {
-  padding-top: 1rem;
   margin-right: 1rem;
   font-size: 1.5rem;
 }
@@ -105,15 +102,15 @@
   #navbar {
     width: 23%;
     display: block;
-    position: relative;
+    position: fixed;
     height: 100%;
-    padding: 2rem 0;
-    padding-left: 2rem;
+    padding-left: 1rem;
     box-shadow: 0 0 10px 0 rgb(200, 200, 200);
   }
 
   .mobile-nav {
     display: none;
+    height: 0;
   }
 
   .top a {

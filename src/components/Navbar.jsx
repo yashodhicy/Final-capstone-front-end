@@ -61,7 +61,7 @@ const Navbar = () => {
         tabIndex={0}
       >
         <div className="top">
-          <div className="text-center mb-5">
+          <div className="text-center mb-2">
             <img
               height={100}
               width={100}
