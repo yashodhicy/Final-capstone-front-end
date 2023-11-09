@@ -24,13 +24,12 @@ const DeleteHouse = () => {
   };
 
   return (
-    <div>
-      <section className="houses">
+    <>
+      <section className="houses w-100 gap-2">
       <div className="header">
         <h2>Need to delete your house?</h2>
         <p>After deleting others can not reserve your house</p>
       </div>
-
       {userhouses.length === 0 ? (
       <p>You have no houses yet. Add a new house.</p>
       ) : (
@@ -59,7 +58,7 @@ const DeleteHouse = () => {
           </div>
         )}
       </section>
-    </div>
+    </>
   );
 };
 
